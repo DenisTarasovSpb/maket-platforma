@@ -940,7 +940,10 @@ function plural(n,a,b,c){var m=n%10,h=n%100;return (m===1&&h!==11)?a:(m>=2&&m<=4
 
 function defaults(){
   var acc={},mode={};B.forEach(function(b){acc[b.id]={dir:true,agent:b.id!=='team'};mode[b.id]='semi'});
-  return {role:'dir',paid:true,mission:1,skin:'pearl',panel:false,order:B.filter(function(b){return !b.core}).map(function(b){return b.id}),off:[],acc:acc,custom:[],reqs:[],notes:[],
+  /* порядок блоков: база партнёров стоит второй, чтобы попасть в четвёрку рядом с клубом (просьба Дениса 06.10) */
+  var ord=B.filter(function(b){return !b.core}).map(function(b){return b.id});
+  ord.splice(ord.indexOf('partners'),1);ord.splice(1,0,'partners');
+  return {role:'dir',paid:true,mission:1,skin:'pearl',panel:false,order:ord,ov:2,off:[],acc:acc,custom:[],reqs:[],notes:[],
     /* v2: участник и его путь */
     ver:false,steps:[false,false,false,false,false],ank:{name:'',city:'Архангельск',years:'',kind:'agency',org:'',spec:'',site:'',soc:'',rev:''},quiz:[-1,-1,-1],
     /* v2: варианты "либо так, либо так" (по умолчанию - рекомендации макета, решений нет) */
@@ -1022,7 +1025,10 @@ function load(){
   var s=defaults();
   try{
     var raw=localStorage.getItem(KEY);
-    if(raw){var o=JSON.parse(raw);for(var k in o)if(k in s)s[k]=o[k]}
+    if(raw){var o=JSON.parse(raw);for(var k in o)if(k in s)s[k]=o[k];
+      /* у тех, кто открывал макет до 06.10, сохранён старый порядок: один раз поднимаем базу партнёров в первую четвёрку */
+      if(!('ov' in o)){var pi=s.order.indexOf('partners');if(pi>3){s.order.splice(pi,1);s.order.splice(1,0,'partners')}}
+    }
     else{
       /* первый запуск v2: переносим из v1 только оформление, миссию и замечания */
       var old=localStorage.getItem(KEY1);
