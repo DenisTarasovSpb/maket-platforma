@@ -645,6 +645,65 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
   .node.l2::before{left:-13px;width:9px}
   .pin{width:30px;height:30px;font-size:15px}
 }
+
+/* ===== v2: база партнёров - свои специалисты, передачи клиентов, счёт рекомендаций, экраны партнёра и клиента ===== */
+.rc{font-size:11px;font-weight:600;color:var(--accent-ink);margin-left:5px;white-space:nowrap}
+.lnk{display:inline-flex;gap:4px;align-items:center;font-size:13px;font-weight:500;color:var(--accent-ink);padding:4px 10px;border-radius:999px}
+.lnk:hover{background:var(--accent-soft)}
+.pcat{margin-bottom:16px;max-width:900px}
+.pcat-h{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.pcat-h .ico{width:32px;height:32px;font-size:17px}
+.pcat-h b{font-size:15px;font-weight:600;flex:1;min-width:0}
+.pcat .sign{margin:8px 0 0;align-items:flex-start}
+.sc{font-size:13px;color:var(--muted);white-space:nowrap}
+.sc b{color:var(--ink);font-weight:600}
+.stp span.bad{background:var(--warn-soft);color:var(--warn);font-weight:600}
+.pairs{display:grid;gap:12px;max-width:980px}
+.pair{display:grid;gap:14px;padding:16px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--surface)}
+.pair-h{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pair-h .t{flex:1 1 200px;min-width:0}
+.pair-h b{display:block;font-weight:600;font-size:15px}
+.pair-h small{font-size:12.5px;color:var(--faint)}
+.pair .two{gap:14px 26px}
+.pair h3{font-size:14.5px;font-weight:600}
+.pair h3 small{font-weight:400;color:var(--faint);font-size:12.5px}
+.sbar{display:flex;gap:2px;height:14px;border-radius:999px;overflow:hidden;background:var(--surface-2);margin:8px 0 6px}
+.sbar i{display:block;height:100%;min-width:6px}
+.sbar .d,.lg .d{background:var(--accent)}
+.sbar .w,.lg .w{background:color-mix(in srgb,var(--accent) 40%,var(--surface))}
+.sbar .b,.lg .b{background:var(--warn)}
+.lg{display:flex;gap:4px 14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.fn{display:grid;gap:6px;margin-top:8px}
+.fn div{display:grid;grid-template-columns:118px minmax(0,1fr) 28px;gap:10px;align-items:center;font-size:13px;color:var(--muted)}
+.fn b{text-align:right;color:var(--ink);font-weight:600}
+.phones{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px 18px;align-items:start;margin-bottom:8px}
+.phones .phonebox,.two .phonebox{position:static}
+.phone.fit{min-height:0}
+.phone .hdr small{margin-left:auto;font-weight:400;color:var(--faint);font-size:12px}
+.kb.c2{grid-template-columns:1fr 1fr}
+.kb.c3{grid-template-columns:1fr 1.6fr 1fr}
+.kb.c5{grid-template-columns:repeat(5,1fr)}
+.qrrow{display:flex;gap:10px;align-items:center;font-size:12.5px;line-height:1.4;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.qrrow b{color:var(--ink);font-weight:600}
+.phone .qr.inl{width:78px;height:78px;padding:6px;border-radius:10px}
+.chain div small{display:block;font-size:12px;color:var(--faint);margin-top:3px}
+.pil{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.pil .metric{display:grid;gap:6px;align-content:start}
+.pil .metric p{font-size:13.5px;color:var(--ink)}
+.pil .metric p.f{font-size:12.5px;color:var(--faint);border-top:1px solid var(--line);padding-top:6px}
+.metric .fn b{font-size:13px;line-height:inherit}
+.node.nw{flex-wrap:wrap}
+.node.nw .t{flex:1 1 180px}
+/* семь вкладок: на компьютере без значков и с переносом, на телефоне лента листается вбок */
+@container main (min-width:541px){.tabs.wrap{flex-wrap:wrap}.tabs.wrap button{padding:10px 12px}.tabs.wrap .ti{display:none}}
+@container main (max-width:540px){
+  .fn div{grid-template-columns:116px minmax(0,1fr) 22px;gap:8px}
+  .pcat-h .lnk{padding:4px 6px}
+  .pt.pw{flex-wrap:wrap}
+  .pt.pw .t{flex:1 1 170px}
+  .pt.pw .btn{width:100%;justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -687,7 +746,7 @@ var B=[
   {k:'Инструмент',t:'QR-точки в городе',d:'Кофейни, салоны красоты, рынки, автосалоны. Видно, откуда пришёл каждый человек.',body:['Список точек и свой QR для каждой','Сколько людей пришло с каждой точки','Табличка и листовка для печати']},
   {k:'Список',t:'Заявки',d:'Беру, начали работу, сделка, без сделки. Каждый шаг виден рекомендателю.',body:['Новые заявки с темой и ответами клиента','Смена статуса одной кнопкой','Уведомление рекомендателю на каждом шаге']},
   {k:'Список',t:'Клиенты и рекомендатели',d:'Кто кого привёл. Знакомый закрепляется за рекомендателем навсегда.',body:['Цепочки рекомендаций','Личный код каждого участника','Рейтинг самых активных']},
-  {k:'Набор',t:'Как получать клиентов',d:'Готовые пост, сторис, сообщение партнёру и знакомым с личным кодом.',body:['Пост и сторис с QR','Сообщение партнёру: салону, магазину, кофейне','Сообщение знакомым']},
+  {k:'Набор',t:'Как получать клиентов',d:'Готовые пост, сторис, сообщение партнёру и знакомым с личным кодом.',body:['Пост и сторис с QR','Сообщение партнёру: салону, магазину, кофейне','Сообщение знакомым'],link:['#/b/partners','Специалисты, которым вы передаёте клиентов, возвращают их вам','Партнёр ставит у себя QR-код клуба друзей: его клиенты приходят к вам. Счёт взаимных рекомендаций — в «Базе партнёров».','Мои партнёры']},
   {k:'Настройка',t:'Вознаграждения',d:'Круги и суммы выплат рекомендателям задаёт агентство.',body:['Сколько кругов и какие суммы','Кому и за какую сделку начислено','Выплата только при статусе «Сделка»']},
   {k:'Список',t:'Агенты и рейтинг',d:'Пропуск для каждого агента, его клиенты и место в рейтинге.',only:'dir',body:['Выдать агенту пропуск в бота','Заявки и сделки по каждому агенту','Рейтинг агентов агентства']},
   {k:'Настройка',t:'Пульт: название, тексты, суммы',d:'Все тексты бота правятся без программиста.',only:'dir',body:['Название и контакты агентства','Тексты сообщений бота','Темы заявок и подарок за вступление']}
@@ -736,12 +795,15 @@ var B=[
   {k:'Шаблон',t:'Сообщения клиентам',d:'Готовые тексты на каждый этап сделки.'},
   {k:'Сертификат',t:'Сертификат клуба',d:'Клиент получает его при вступлении в клуб друзей.'}
  ]},
- {id:'partners',icon:'heart-handshake',title:'База партнёров',sub:'Проверенные подрядчики для ваших клиентов после сделки.',sections:[
-  {k:'Каталог',t:'Дизайнеры',d:'Портфолио, город, условия для клиентов платформы.'},
-  {k:'Каталог',t:'Ремонт и бригады',d:'Кто делает, в каких городах, отзывы агентов.'},
-  {k:'Каталог',t:'Мебель',d:'Салоны и производства со специальными условиями.'},
-  {k:'Каталог',t:'Другие услуги',d:'Всё, что нужно клиенту после покупки.'},
-  {k:'Заявка',t:'Предложить партнёра',d:'Добавьте своего проверенного подрядчика.'}
+ /* v2: база партнёров - раздел со своим экраном; sections нужны строке запроса и названиям экранов */
+ {id:'partners',icon:'heart-handshake',title:'База партнёров',page:'partners',meta:'Мои партнёры · Передачи · Счёт',sub:'Свои специалисты и партнёры платформы: передать клиента кнопкой и видеть, чем кончилось.',sections:[
+  {k:'Экран',t:'Мои партнёры',d:'Свои специалисты по категориям и короткий счёт по каждому.',sub:''},
+  {k:'Экран',t:'Передать клиента',d:'Клиенту нужен ремонт, ипотека, страхование, дизайн, коммерческое помещение или слаботочные системы: передать своему специалисту кнопкой.',sub:'send'},
+  {k:'Экран',t:'Мои передачи',d:'Статусы и журнал: чем кончилась каждая передача.',sub:'list'},
+  {k:'Экран',t:'Счёт рекомендаций',d:'Сколько клиентов вы передали партнёру и сколько пришло от него.',sub:'score'},
+  {k:'Экран',t:'Глазами партнёра и клиента',d:'Что видят в боте партнёр и клиент.',sub:'view'},
+  {k:'Экран',t:'Каталог партнёров',d:'Партнёры платформы по категориям: дизайнеры, бригады, мебель.',sub:'cat',tag:'замысел'},
+  {k:'Экран',t:'Партнёры агентства',d:'Сводка по агентам и четыре показателя пилота.',sub:'agency',only:'dir'}
  ]},
  {id:'market',icon:'chart-line',title:'Сводки рынка',sub:'Обновления рынка: коротко, что изменилось и что сказать клиенту.',sections:[
   {k:'Сводка',t:'Сводка недели',d:'Что изменилось на рынке, одним экраном.'},
@@ -765,9 +827,17 @@ var V={
  disc:{l:'Скидка агентству за место',o:[[0,'без скидки'],[20,'20%'],[30,'30%'],[40,'40%']]},
  exec:{l:'Исполнитель на рынке сделок',o:[['author','автор выбирает из первых трёх откликов'],['first','кто первый взял'],['rating','платформа предлагает по рейтингу']]},
  prof:{l:'Профиль агента',o:[['card','визитка'],['full','полный']]},
- mapm:{l:'Что показывает карта',o:[['net','сеть: клубы, точки, заявки, сделки'],['agents','число агентов']]}
+ mapm:{l:'Что показывает карта',o:[['net','сеть: клубы, точки, заявки, сделки'],['agents','число агентов']]},
+ /* база партнёров: r - рекомендация макета (стоит по умолчанию и помечена звёздочкой); решений нет */
+ ppct:{l:'Процент со сделки партнёра',r:'no',o:[['no','платформа не берёт'],['yes','платформа берёт']]},
+ pown:{l:'Свои партнёры агента',r:'link',o:[['link','сразу по ссылке агента'],['form','через анкету и проверку']]},
+ prule:{l:'«Нет записи — нет вознаграждения»',r:'must',o:[['must','условие входа с кнопкой «Согласен»'],['wish','пожелание']]},
+ pterm:{l:'Срок записи клиента',r:'90',o:[['90','90 дней с продлением при отметке'],['180','180 дней'],['none','без срока']]},
+ pnoc:{l:'Клиент не подтвердил участие агента',r:'keep',o:[['keep','запись остаётся с пометкой, спор разбирает человек'],['drop','запись снимается']]},
+ pqr:{l:'Партнёру за клиента по его QR-коду',r:'agency',o:[['agency','решает агентство'],['sum','сумма за сделку, как участнику клуба'],['score','только счёт']]},
+ pnum:{l:'Когда партнёр видит номер клиента',r:'after',o:[['after','после «Да» клиента'],['now','сразу']]}
 };
-var VKEYS=['pay','circles','who','disc','exec','prof','mapm'];
+var VKEYS=['pay','circles','who','disc','exec','prof','mapm','ppct','pown','prule','pterm','pnoc','pqr','pnum'];
 var MODES=[['hand','вручную'],['semi','полуавтомат'],['auto','автомат']];
 /* какой цифровой сотрудник отвечает за раздел */
 var RESP={club:'Помощник по заявкам клуба',cities:'Смотритель карты',deals:'Диспетчер рынка сделок',invite:'Счетовод партнёрской программы',know:'Редактор материалов',live:'Организатор эфиров',tools:'Дежурный по запросам',clientkit:'Редактор материалов',partners:'Проверяющий партнёров',market:'Редактор сводки рынка',team:'Аналитик по агентам'};
@@ -876,7 +946,9 @@ function defaults(){
     /* v2: варианты "либо так, либо так" (по умолчанию - рекомендации макета, решений нет) */
     pay:'mix',circles:2,who:'mix',disc:30,exec:'author',share:25,prof:'full',mapm:'net',mode:mode,
     /* v2: состояние экранов */
-    calc:{p:7000,l1:20,l2:5,n1:2,n2:4},taken:[],psel:'',csel:'',rg:'agent',rp:'m',df:'all',resp:{},took:{},pick:{},mine:[],feed:{},oc:''};
+    calc:{p:7000,l1:20,l2:5,n1:2,n2:4},taken:[],psel:'',csel:'',rg:'agent',rp:'m',df:'all',resp:{},took:{},pick:{},mine:[],feed:{},oc:'',
+    /* v2: база партнёров - варианты (по умолчанию рекомендации макета) и состояние экранов */
+    ppct:'no',pown:'link',prule:'must',pterm:'90',pnoc:'keep',pqr:'agency',pnum:'after',ptx:[],ptf:'all',pper:'90',padd:'',pjoin:[]};
 }
 function fillAnk(){
   var eg={name:'Алексей М.',city:'Архангельск',years:'5',org:'Агентство «Альфа»',spec:'Вторичное жильё',site:'страница агента (ссылка)',soc:'соцсети (ссылка)',rev:'отзывы клиентов (ссылка)'};
@@ -889,7 +961,7 @@ function setLvl(v){
 /* Замечания к макету */
 var NOTE_OPEN=false,NOTE_DRAFT='';
 function screenName(r){
-  if(r.v==='block'){var bb=get(r.id),sn={ru:'Россия',top:'Рейтинги',calc:'Калькулятор',open:'Открыть город','new':'Передать клиента'}[r.sub];return bb.title+(r.sub?' / '+(sn||'заявка '+r.sub):'')}
+  if(r.v==='block'){var bb=get(r.id),sn={ru:'Россия',top:'Рейтинги',calc:'Калькулятор',open:'Открыть город','new':'Передать клиента',send:'Передать клиента',list:'Мои передачи',score:'Счёт рекомендаций',view:'Глазами партнёра и клиента',cat:'Каталог',agency:'Партнёры агентства'}[r.sub];return bb.title+(r.sub?' / '+(sn||(r.id==='partners'?'передача ':'заявка ')+r.sub):'')}
   if(r.v==='item'){var b=get(r.id);return b.title+' / '+b.sections[r.n].t}
   return {account:'Подписка и доступ',requests:'Мои запросы',profile:'Профиль агента',anketa:'Анкета агента',course:'Вводный курс',verify:'Как стать проверенным'}[r.v]||'Главная';
 }
@@ -915,7 +987,7 @@ function tabbarHTML(r){
 }
 
 /* Строка запроса. В макете поиск простой: совпадение слов запроса с названиями и описаниями разделов. */
-var EXAMPLES=['Клиент просит скидку с комиссии','Написать объявление о продаже двухкомнатной квартиры','Хочу лекцию про налоги при продаже','Хочу спикера: юрист по наследству'];
+var EXAMPLES=['Клиент просит скидку с комиссии','Написать объявление о продаже двухкомнатной квартиры','Хочу лекцию про налоги при продаже','Хочу спикера: юрист по наследству','Клиенту нужен ремонт'];
 function findStaff(q){q=q.toLowerCase();for(var i=0;i<STAFFKEY.length;i++)if(STAFFKEY[i][0].test(q))return STAFFKEY[i][1];return -1}
 var STOP=['клиент','клиента','клиенту','клиенты','клиентов','агент','агента','агенту','хочу','нужен','нужна','нужно','надо','чтобы','какой','такой','такую','сделать','можно','было','очень','меня','свой','своя','хотелось','провели','провести','лекцию','лекция','лекции','спикер','спикера','эфир'];
 var CITY='Архангельск';
@@ -976,13 +1048,16 @@ function load(){
   if(q.get('take')&&s.taken.indexOf(q.get('take'))<0){s.taken.push(q.get('take'));s.steps[2]=true}
   if(q.get('csel'))s.csel=q.get('csel');
   if(q.get('rg'))s.rg=q.get('rg');
+  if(q.get('pper'))s.pper=q.get('pper');
+  if(q.get('padd'))s.padd=q.get('padd');
+  if(q.get('pdemo')){s.ptx=[{id:'xdemo',p:'ps',cl:'Вероника',what:'Нужен ремонт в новой квартире',my:true,log:[['06.10','14:20','new']]}];PLAST='xdemo'}
   if(q.get('note'))NOTE_OPEN=true;
   if(q.get('ask'))PENDING=q.get('ask');
   if(q.get('eg'))PENDING=EXAMPLES[+q.get('eg')]||'';
   return s;
 }
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
-var S,PENDING='';S=load();
+var S,PENDING='',PLAST='';S=load();
 
 function route(){
   var p=location.hash.replace(/^#\/?/,'').split('/');
@@ -1040,7 +1115,7 @@ function railHTML(r){
 }
 function top(r){
   var left='<span class="path">Главная</span>',home='<button class="back" data-go="#/">'+ic('arrow-left')+'На главную</button>';
-  if(r.v==='block')left=(r.id==='deals'&&r.sub)?'<button class="back" data-go="#/b/deals">'+ic('arrow-left')+'Рынок сделок</button>':home;
+  if(r.v==='block')left=(r.id==='deals'&&r.sub)?'<button class="back" data-go="#/b/deals">'+ic('arrow-left')+'Рынок сделок</button>':(r.id==='partners'&&ptBy(r.sub))?'<button class="back" data-go="#/b/partners/list">'+ic('arrow-left')+'Мои передачи</button>':home;
   else if(r.v==='profile'&&r.pid!=='me')left='<button class="back" data-act="hback">'+ic('arrow-left')+'Назад</button>';
   else if(r.v==='anketa'||r.v==='course')left='<button class="back" data-go="#/verify">'+ic('arrow-left')+'Как стать проверенным</button>';
   else if(r.v!=='home'&&r.v!=='item')left=home;
@@ -1153,7 +1228,9 @@ function item(b,n){
   else if(s.k==='Инструмент')ph='<div class="ph"><span>'+ic('device-mobile')+'Экран инструмента<br><span class="tag">Работает, пока активна подписка</span></span></div>';
   else ph='<div class="rows">'+[0,1,2,3].map(function(){return '<div class="rowsk">'+ic('file-text')+'<span class="sk"></span><span class="sk s"></span></div>'}).join('')+'</div>';
   var will=s.body?'<div class="will"><h2>Что здесь будет</h2><ul>'+s.body.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>':'';
-  return '<article class="item"><header><span class="tags"><span class="tag">'+esc(s.k)+'</span>'+(s.only?'<span class="tag a">Директор</span>':'')+(s.tag?'<span class="tag dash">'+esc(s.tag)+'</span>':'')+'<span class="tag dash">заглушка</span></span><h1>'+esc(s.t)+'</h1><p class="d">'+esc(s.d)+'</p></header>'+ph+will+'</article>';
+  /* связь с другим разделом: одна строка и кнопка перехода */
+  var link=s.link&&S.off.indexOf('partners')<0?'<div class="notice" style="margin:0">'+ic('heart-handshake')+'<div><b>'+s.link[1]+'</b><p>'+s.link[2]+'</p></div><button class="btn" data-go="'+s.link[0]+'">'+s.link[3]+ic('arrow-right')+'</button></div>':'';
+  return '<article class="item"><header><span class="tags"><span class="tag">'+esc(s.k)+'</span>'+(s.only?'<span class="tag a">Директор</span>':'')+(s.tag?'<span class="tag dash">'+esc(s.tag)+'</span>':'')+'<span class="tag dash">заглушка</span></span><h1>'+esc(s.t)+'</h1><p class="d">'+esc(s.d)+'</p></header>'+link+ph+will+'</article>';
 }
 function account(){
   var open=['club'].concat(S.order).map(get).filter(function(b){return b&&S.off.indexOf(b.id)<0&&S.acc[b.id][S.role]});
@@ -1189,7 +1266,7 @@ function panelHTML(){
    +'<h4>Участник</h4><span class="seg">'+[['new','Новичок'],['ver','Проверенный']].map(function(o){return '<button data-act="lvl:'+o[0]+'" aria-pressed="'+((S.ver?'ver':'new')===o[0])+'">'+o[1]+'</button>'}).join('')+'</span>'
    +'<h4>Подписка</h4><span class="seg">'+[[1,'Активна'],[0,'Не оплачена']].map(function(o){return '<button data-act="paid:'+o[0]+'" aria-pressed="'+((S.paid?1:0)===o[0])+'">'+o[1]+'</button>'}).join('')+'</span></div>'
    +'<h4>Варианты «либо так, либо так»</h4><p class="hint" style="margin-top:0">Решения по ним нет. Каждый переключатель сразу меняет экраны и расчёты; те же варианты стоят прямо в разделах.</p>'
-   +VKEYS.map(function(k){return '<div class="pv"><span>'+V[k].l+'</span><div class="optset">'+V[k].o.map(function(o){return '<button class="opt" data-act="var:'+k+':'+o[0]+'" aria-pressed="'+(String(S[k])===String(o[0]))+'">'+o[1]+'</button>'}).join('')+'</div></div>'}).join('')
+   +VKEYS.map(function(k){return (k==='ppct'?'<h4>Варианты: база партнёров</h4><p class="hint" style="margin-top:0">Звёздочкой помечена рекомендация макета: она стоит по умолчанию. Решения по этим пунктам нет.</p>':'')+'<div class="pv"><span>'+V[k].l+'</span><div class="optset">'+V[k].o.map(function(o){return '<button class="opt" data-act="var:'+k+':'+o[0]+'" aria-pressed="'+(String(S[k])===String(o[0]))+'">'+o[1]+(V[k].r===o[0]?' ★':'')+'</button>'}).join('')+'</div></div>'}).join('')
    +'<div class="pv"><span>Доля за переданного клиента: <b data-share>'+S.share+'%</b></span>'+rng(20,35,1,S.share,'share','Доля за переданного клиента')+'</div>'
    +'<h4>Оформление</h4><div class="skins">'+SKINS.map(function(k){return '<button class="skin" data-act="skin:'+k[0]+'" aria-pressed="'+(S.skin===k[0])+'"><i class="dot" style="--a:'+k[3]+';--b:'+k[4]+'"></i>'+k[1]+'<small>'+k[2]+'</small></button>'}).join('')+'</div>'
    +'<h4>Миссия на главной</h4><span class="seg">'+[1,2,3,0].map(function(m){return '<button data-act="mission:'+m+'" aria-pressed="'+(S.mission===m)+'">'+(m?'Вариант '+m:'Без неё')+'</button>'}).join('')+'</span>'
@@ -1210,7 +1287,7 @@ function summary(){
    .concat(on.map(function(b,i){return (i+1)+'. '+b.title+(b.custom?' (свой блок)':'')+' | доступ: '+accTxt(b.id)}))
    .concat(['Выключены: '+(off.length?off.map(function(b){return b.title}).join(', '):'нет')])
    .concat(['Выбранные варианты:'])
-   .concat(VKEYS.map(function(k){return '- '+V[k].l+': '+vname(k)}))
+   .concat(VKEYS.map(function(k){var d=V[k],rec=d.r?d.o.filter(function(o){return o[0]===d.r})[0][1]:'';return '- '+d.l+': '+vname(k)+(d.r?(String(S[k])===d.r?' (рекомендация макета)':' (изменено; рекомендация макета: '+rec+')'):'')}))
    .concat(['- Доля за переданного клиента: '+S.share+'%','- Калькулятор: подписка '+S.calc.p+' руб., первый круг '+S.calc.l1+'%, второй круг '+S.calc.l2+'%','- Режим цифровых сотрудников: '+(modes.length?modes.join('; ')+'; остальные — полуавтомат':'везде полуавтомат')])
    .concat(S.notes.length?['Замечания:'].concat(S.notes.map(function(n){return '- ['+n.w+'] '+n.t})):[])
    .concat(S.reqs.length?['Запросы, которые я пробовал в строке:'].concat(S.reqs.map(function(r){return '- '+r.type+': '+r.q})):[]).join('\n');
@@ -1224,7 +1301,7 @@ function h2(t,extra){return '<h2 class="h2">'+t+(extra?' '+extra:'')+'</h2>'}
 /* строка "что здесь сделать" + одна главная кнопка */
 function doBox(title,text,btn,cls){return '<div class="do'+(cls?' '+cls:'')+'"><div class="t"><b>'+title+'</b>'+(text?'<p>'+text+'</p>':'')+'</div>'+(btn||'')+'</div>'}
 function headHTML(icon,title,text){return '<div class="bhead"><span class="big">'+ic(icon)+'</span><div><h1>'+title+'</h1><p>'+text+'</p></div></div>'}
-function tabsHTML(base,list,cur){return '<div class="tabs">'+list.map(function(t){return '<button class="'+(cur===t[0]?'cur':'')+'" data-go="'+base+(t[0]?'/'+t[0]:'')+'">'+ic(t[2])+t[1]+'</button>'}).join('')+'</div>'}
+function tabsHTML(base,list,cur){return '<div class="tabs'+(list.length>5?' wrap':'')+'">'+list.map(function(t){return '<button class="'+(cur===t[0]?'cur':'')+'" data-go="'+base+(t[0]?'/'+t[0]:'')+'">'+ic(t[2])+t[1]+'</button>'}).join('')+'</div>'}
 function segHTML(name,opts,cur){return '<span class="seg">'+opts.map(function(o){return '<button data-act="'+name+':'+o[0]+'" aria-pressed="'+(String(cur)===String(o[0]))+'">'+o[1]+'</button>'}).join('')+'</span>'}
 var W={mem:['участник клубов друзей','участника клубов друзей','участников клубов друзей'],pts:['точка с QR','точки с QR','точек с QR'],req:['заявка','заявки','заявок'],deal:['сделка','сделки','сделок'],ag:['агент','агента','агентов'],c:['город','города','городов']};
 function w(k,n){return plural(n,W[k][0],W[k][1],W[k][2])}
@@ -1232,8 +1309,10 @@ function w(k,n){return plural(n,W[k][0],W[k][1],W[k][2])}
 function rng(min,max,step,val,f,label){return '<input type="range" min="'+min+'" max="'+max+'" step="'+step+'" value="'+val+'" data-f="'+f+'" style="--p:'+Math.round((val-min)/(max-min)*100)+'%"'+(label?' aria-label="'+label+'"':'')+'>'}
 function vr(k,label){
   var d=V[k];
-  return '<div class="vr"><span class="vl">'+(label||d.l)+':</span>'+d.o.map(function(o,i){return (i?'<span class="sl">/</span>':'')+'<button data-act="var:'+k+':'+o[0]+'" aria-pressed="'+(String(S[k])===String(o[0]))+'">'+o[1]+'</button>'}).join('')+UND+'</div>';
+  return '<div class="vr"><span class="vl">'+(label||d.l)+':</span>'+d.o.map(function(o,i){return (i?'<span class="sl">/</span>':'')+'<button data-act="var:'+k+':'+o[0]+'" aria-pressed="'+(String(S[k])===String(o[0]))+'">'+o[1]+(d.r===o[0]?REC:'')+'</button>'}).join('')+UND+'</div>';
 }
+/* пометка варианта, который макет рекомендует (решения по нему нет) */
+var REC='<span class="rc">★ рекомендация</span>';
 function vname(k){var f=V[k].o.filter(function(o){return String(o[0])===String(S[k])})[0];return f?f[1]:''}
 function staffLine(b){
   var m=S.mode[b.id]||'semi';
@@ -1570,7 +1649,335 @@ function deptView(){
    +h2('Что сотрудники сделали сегодня',EG)+'<div class="feed">'+FEED.map(function(f){var s=S.feed[f[0]];return '<div class="fd'+(s?' '+s:'')+'"><div class="h"><span>'+f[1]+'</span><b>'+f[2]+'</b>'+(s==='ok'?'<span class="tag a">'+ic('check')+'Утверждено</span>':s==='fix'?'<span class="tag">Возвращено на доработку</span>':'<span class="tag dash">ждёт вас</span>')+'</div><p>'+f[3]+'</p>'+(s?'':'<div class="pact" style="margin-top:0"><button class="btn" data-act="feed:'+f[0]+':ok">Утвердить</button><button class="btn ghost" data-act="feed:'+f[0]+':fix">Поправить</button></div>')+'</div>'}).join('')+'</div>'
    +h2('Сотрудники отдела',IDEA)+'<div class="cards">'+DEPT.map(staffCard).join('')+'</div>';
 }
-var PAGES={cities:citiesPage,deals:dealsPage,invite:invitePage},VIEWS={staff:staffView,dept:deptView};
+
+/* ================= v2: база партнёров - свои специалисты, передачи клиентов, счёт рекомендаций ================= */
+/* Все специалисты, клиенты, даты и числа выдуманы. "Сегодня" в примерах - 06.10.2026. */
+var TODAY=new Date(2026,9,6),TD='06.10';
+/* категории: код, значок, название */
+var PCAT=[['com','building-skyscraper','Коммерческая недвижимость'],['ipo','home-check','Ипотека'],['ins','umbrella','Страхование'],['rem','hammer','Ремонт'],['dsg','palette','Дизайн'],['low','plug-connected','Слаботочные системы']];
+/* мои партнёры. qr - по QR-коду партнёра за 90 дней [открыли бота, заявки, сделки]; old - передачи раньше 90 дней [всего, выполнено, не состоялось]; oq - поток по QR раньше 90 дней */
+var PP=[
+ {id:'ps',cat:'rem',n:'Сергей К.',d:'Ремонт квартир',g:'m',qr:[9,2,1],old:[3,2,1],oq:[12,2,1]},
+ {id:'po',cat:'ipo',n:'Ольга Н.',d:'Ипотечный брокер',g:'f',qr:[14,5,2],old:[4,3,1],oq:[17,4,1]},
+ {id:'pv',cat:'ins',n:'Роман Л.',d:'Страхование жилья и ипотеки',g:'m',qr:[3,0,0],old:[0,0,0],oq:[0,0,0]},
+ {id:'pa',cat:'com',n:'Андрей П.',d:'Помещения под бизнес',g:'m',qr:[4,1,0],old:[1,1,0],oq:[2,0,0]}
+];
+/* кто "вступает" по ссылке агента, если нажать кнопку показа в макете */
+var PNEW={com:['Лев Г.','m'],ipo:['Нина Ф.','f'],ins:['Глеб Т.','m'],rem:['Захар М.','m'],dsg:['Кира Д.','f'],low:['Тимофей Р.','m']};
+var MYCL=[['c1','Вероника','участник клуба друзей'],['c2','Григорий','покупатель, сделка в сентябре'],['c3','Зоя','продавец, сделка в работе']];
+/* передачи: p - партнёр, cl - клиент, what - пояснение, rate - оценка клиента, log - журнал [дата, время, событие] */
+var PT0=[
+ {id:'t7',p:'po',cl:'Николай',what:'Ипотека на вторичное жильё',log:[['06.10','09:30','new']]},
+ {id:'t1',p:'ps',cl:'Артём',what:'Ремонт двухкомнатной квартиры',log:[['05.10','11:02','new'],['05.10','11:40','yes'],['05.10','12:15','acc'],['06.10','10:05','call']]},
+ {id:'t5',p:'po',cl:'Дмитрий',what:'Одобрение ипотеки на новостройку',log:[['22.09','10:15','new'],['22.09','10:50','yes'],['22.09','14:00','acc'],['23.09','11:30','call'],['01.10','16:45','contract']]},
+ {id:'t9',p:'pa',cl:'Игорь',what:'Помещение под кофейню',log:[['29.09','12:40','new'],['29.09','13:05','yes'],['30.09','10:20','acc']]},
+ {id:'t4',p:'ps',cl:'Лидия',what:'Ремонт кухни',log:[['01.09','15:20','new'],['01.09','16:05','yes'],['02.09','09:40','acc'],['03.09','13:10','call'],['08.09','17:30','contract'],['15.09','12:00','ask'],['15.09','12:25','ansproc'],['22.09','18:30','fail'],['22.09','18:30','mis']]},
+ {id:'t11',p:'pa',cl:'Ринат',what:'Аренда склада',log:[['10.09','16:10','new'],['10.09','18:45','no']]},
+ {id:'t8',p:'pv',cl:'Елена',what:'Страхование квартиры при ипотеке',log:[['03.07','11:00','new'],['03.07','11:20','yes'],['06.07','09:15','acc'],['05.08','12:00','ask']]},
+ {id:'t2',p:'ps',cl:'Ирина',what:'Укладка плитки в ванной',rate:5,log:[['18.08','10:00','new'],['18.08','10:30','yes'],['18.08','15:10','acc'],['19.08','12:00','call'],['22.08','17:20','contract'],['27.08','19:00','done'],['29.08','12:00','ask'],['29.08','12:40','ansyes']]},
+ {id:'t10',p:'pa',cl:'Татьяна',what:'Помещение под пункт выдачи',rate:5,log:[['11.08','11:00','new'],['11.08','11:15','yes'],['12.08','10:00','acc'],['13.08','15:30','call'],['20.08','12:00','contract'],['26.08','16:00','done'],['27.08','12:00','ask'],['27.08','13:10','ansyes']]},
+ {id:'t6',p:'po',cl:'Светлана',what:'Рефинансирование ипотеки',rate:5,log:[['05.08','09:20','new'],['05.08','09:45','yes'],['06.08','11:00','acc'],['07.08','14:20','call'],['14.08','10:30','contract'],['20.08','17:00','done'],['21.08','12:00','ask'],['21.08','12:05','ansyes']]},
+ {id:'t3',p:'ps',cl:'Павел',what:'Косметический ремонт перед продажей',rate:4,log:[['24.07','13:00','new'],['24.07','13:20','yes'],['25.07','09:00','acc'],['26.07','11:40','call'],['28.07','18:00','contract'],['03.08','20:10','done'],['04.08','12:00','ask'],['04.08','15:30','ansyes']]}
+];
+/* события журнала: кто нажал, что записано */
+var PEV={'new':['Агент','Вы передали клиента. Запись создана'],yes:['Клиент','Клиент нажал «Да, передать»'],no:['Клиент','Клиент нажал «Не нужно»'],acc:['Партнёр','Партнёр отметил «Принял»'],call:['Партнёр','Партнёр отметил «Связался»'],contract:['Партнёр','Партнёр отметил «Договор»'],done:['Партнёр','Партнёр отметил «Выполнено»'],fail:['Партнёр','Партнёр отметил «Не состоялось»'],ask:['Бот','Бот спросил клиента: «Работа состоялась?»'],ansyes:['Клиент','Клиент ответил «Да»'],ansproc:['Клиент','Клиент ответил «Ещё в процессе»'],mis:['Бот','Расхождение: отметка партнёра и ответ клиента не совпали. Передано ответственному (решить, кто отвечает)']};
+var PST={wait:'Ждёт клиента',yes:'Ждёт партнёра',acc:'Принял',call:'Связался',contract:'Договор',done:'Выполнено',fail:'Не состоялось',exp:'Срок вышел',noc:'Клиент не подтвердил',drop:'Запись снята'};
+/* до какого шага дошла передача */
+var PSI={wait:0,yes:0,noc:0,acc:1,call:2,contract:3,done:4};
+/* шаги, которые макет показывает по кнопке на передаче, созданной в макете */
+var PNX=[['yes','клиент нажал «Да, передать»'],['acc','партнёр отметил «Принял»'],['call','партнёр отметил «Связался»'],['contract','партнёр отметил «Договор»'],['done','партнёр отметил «Выполнено»'],['ask','бот спросил клиента'],['ansyes','клиент ответил «Да»']];
+var PS={src:'my',cl:'c1',name:'',tel:'',p:'',what:''};
+/* сводка директора: агент, партнёров, передач, выполнено, без итоговой отметки старше 30 дней, расхождений */
+var PAGT=[['Мария К.',3,9,5,1,1],['Антон Б.',2,8,3,2,1],['Юлия С.',1,4,1,0,0],['Олег Д.',0,0,0,0,0]];
+/* показатели пилота: передач старше 30 дней, из них без итоговой отметки, с ответом клиента, расхождений, пар, пар с повтором, по QR партнёров: открыли бота, заявок, сделок */
+var PIL={old:14,nofin:3,ans:12,mis:2,pairs:6,rep:4,qo:64,qr:11,qd:3};
+function pd(s){var a=s.split('.');return new Date(2026,+a[1]-1,+a[0])}
+function fd(d){return ('0'+d.getDate()).slice(-2)+'.'+('0'+(d.getMonth()+1)).slice(-2)+'.'+d.getFullYear()}
+function nowHM(){var n=new Date();return ('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2)}
+function pct(a,b){return b?Math.round(a/b*100):0}
+function meName(){return S.ank.name||'Марина В.'}
+function catOf(id){return PCAT.filter(function(c){return c[0]===id})[0]||PCAT[0]}
+function allPP(){return PP.concat(S.pjoin.filter(function(c){return PNEW[c]}).map(function(c){return {id:'n'+c,cat:c,n:PNEW[c][0],d:'Вступил по вашей ссылке',g:PNEW[c][1],qr:[0,0,0],old:[0,0,0],oq:[0,0,0]}}))}
+function pp(id){return allPP().filter(function(p){return p.id===id})[0]||PP[0]}
+function allT(){return S.ptx.concat(PT0)}
+function ptBy(id){return id?allT().filter(function(t){return t.id===id})[0]:null}
+function tHas(t,c){return t.log.some(function(e){return e[2]===c})}
+/* срок записи: 90 дней от последней отметки партнёра / 180 дней от создания / без срока */
+function tDead(t){
+  if(S.pterm==='none')return null;
+  var base=t.log[0][0];
+  if(S.pterm==='90')t.log.forEach(function(e){if(PSI[e[2]]>0)base=e[0]});
+  var d=pd(base);d.setDate(d.getDate()+(S.pterm==='90'?90:180));return d;
+}
+function tSt(t){
+  var st='wait';
+  t.log.forEach(function(e){var c=e[2];if(c==='new')st='wait';else if(c==='no')st='noc';else if(PST[c])st=c});
+  if(st==='noc')return S.pnoc==='drop'?'drop':'noc';
+  var d=tDead(t);
+  if(d&&d<TODAY&&st!=='done'&&st!=='fail')return 'exp';
+  return st;
+}
+function tGrp(st){return st==='done'?'done':(st==='fail'||st==='exp')?'bad':st==='drop'?'drop':'work'}
+function pStat(pid,per){
+  var r={tot:0,done:0,work:0,bad:0};
+  allT().forEach(function(t){if(pid&&t.p!==pid)return;var g=tGrp(tSt(t));if(g==='drop')return;r.tot++;r[g]++});
+  if(per==='all')(pid?[pp(pid)]:allPP()).forEach(function(p){r.tot+=p.old[0];r.done+=p.old[1];r.bad+=p.old[2]});
+  return r;
+}
+function pQr(pid,per){var p=pp(pid);return per==='all'?p.qr.map(function(x,i){return x+p.oq[i]}):p.qr}
+function pShort(p){var s=pStat(p.id,S.pper),q=pQr(p.id,S.pper);return 'вы '+(p.g==='f'?'ей':'ему')+' <b>'+s.tot+'</b> · '+(p.g==='f'?'она':'он')+' вам <b>'+q[1]+'</b>'}
+function sendBtn(){return '<button class="btn big" data-go="#/b/partners/send">'+ic('send')+'Передать клиента</button>'}
+function termText(){return S.pterm==='90'?'Срок 90 дней, каждая отметка партнёра продлевает':S.pterm==='180'?'Срок 180 дней':'Без срока'}
+
+/* --- вкладка "Мои партнёры" --- */
+function pLink(){return LINK.replace('/p/',S.pown==='form'?'/anketa/':'/s/')}
+function pMsg(cat){
+  return 'Здравствуйте! Своих клиентов я передаю специалистам через бота: вы сразу видите заявку, а я вижу, чем она закончилась. Категория: '+catOf(cat)[2].toLowerCase()+'. '
+   +(S.pown==='form'?'Заполните короткую анкету по ссылке: после проверки вы появитесь в моём списке. ':'Подключитесь по моей ссылке, это пара минут. ')+pLink();
+}
+function pInvite(cat){
+  var form=S.pown==='form';
+  return '<div class="sign" style="max-width:none">'+qr('inl')+'<div><small>Шаг 1. Категория: '+catOf(cat)[2]+' · Шаг 2. Ссылка и QR для специалиста</small>'
+   +'<div class="linkbox"><span>'+pLink()+'</span><button class="btn" data-act="pcopy:'+cat+'">'+ic('copy')+'Скопировать сообщение</button></div>'
+   +'<div class="msg" style="margin-top:10px"><span class="cap">Шаг 3. Готовое сообщение для пересылки</span><p class="q">'+esc(pMsg(cat))+'</p></div>'
+   +'<small style="margin-top:8px">'+(form?'Специалист заполняет анкету; в вашем списке он появится после проверки (срок проверки не решён).':'Специалист открывает ссылку, соглашается с правилом и сразу появляется в вашем списке.')+'</small>'
+   +'<div class="pact"><button class="btn ghost" data-act="pjoin:'+cat+'">В макете: показать, что специалист вступил</button></div></div></div>';
+}
+function pRow(p){
+  return '<div class="who"><button class="wl" data-go="#/b/partners/score"><span class="av">'+esc(ini(p.n))+'</span><span><b>'+esc(p.n)+'</b><small>'+esc(p.d)+'</small></span></button><span class="sc">'+pShort(p)+'</span><button class="btn ghost" data-act="pto:'+p.id+'">'+ic('send')+'Передать</button></div>';
+}
+function partnersMy(){
+  var list=allPP();
+  return doBox('Клиенту нужен ремонт, ипотека или страховка? Передайте его своему специалисту одной кнопкой','Запись «чей клиент» создаётся в момент нажатия — раньше, чем специалист узнаёт номер. Дальше вы видите каждый его шаг и итог.',sendBtn())
+   +'<div class="vrs">'+vr('pown')+vr('ppct')+'</div>'
+   +h2('Мои специалисты: '+list.length,EG+'<span class="tag">счёт за '+(S.pper==='all'?'всё время':'90 дней')+'</span>')
+   +PCAT.map(function(c){
+     var ps=list.filter(function(p){return p.cat===c[0]});
+     return '<div class="pcat"><div class="pcat-h"><span class="ico">'+ic(c[1])+'</span><b>'+c[2]+'</b>'+(ps.length?'<button class="lnk" data-act="padd:'+c[0]+'">'+ic('plus')+'Добавить специалиста</button>':'')+'</div>'
+      +(ps.length?'<div class="rows">'+ps.map(pRow).join('')+'</div>'
+        :'<div class="pt free pw"><span class="ico">'+ic('user-plus')+'</span><span class="t"><b>Пока никого</b><small>Пригласите своего специалиста: он получит ссылку и QR-код.</small></span><button class="btn ghost" data-act="padd:'+c[0]+'">Добавить специалиста</button></div>')
+      +(S.padd===c[0]?pInvite(c[0]):'')+'</div>';
+   }).join('')
+   +'<p class="sub">Счёт «вы ему · он вам»: сколько клиентов передали вы и сколько заявок пришло по QR-коду клуба друзей, который стоит у специалиста.</p>'
+   +'<div class="vrs"><div class="vr"><span class="vl">Следующая очередь:</span>гарантия на работу партнёра в боте <span class="sl">→</span> выплата через платформу <span class="sl">→</span> общий каталог партнёров'+IDEA+'</div></div>';
+}
+
+/* --- вкладка "Передать клиента" --- */
+function cliMsg(p,me){
+  return S.pnum==='after'
+    ?'Ваш агент '+me+' рекомендует специалиста: '+esc(p.n)+', '+catOf(p.cat)[2].toLowerCase()+'.<br><br>Передать ему ваш номер, чтобы он связался с вами? Позже я спрошу, как всё прошло.'
+    :'Ваш агент '+me+' рекомендует специалиста: '+esc(p.n)+', '+catOf(p.cat)[2].toLowerCase()+'. Он свяжется с вами.<br><br>Вас направил агент '+me+' — подтвердите, пожалуйста. Позже я спрошу, как всё прошло.';
+}
+function cliKb(){return S.pnum==='after'?kb(['Да, передать','Не нужно'],2):kb(['Да, подтверждаю','Нет'],2)}
+function kb(a,c){return '<div class="kb'+(c?' c'+c:'')+'">'+a.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>'}
+function phoneBox(who,sub,inner,cap,fit){return '<div class="phonebox"><div class="phone'+(fit?' fit':'')+'"><div class="hdr"><span class="ico">'+ic('message-circle')+'</span>'+who+'<small>'+sub+'</small></div>'+inner+'</div><small>'+cap+'</small></div>'}
+function sentHTML(t){
+  var p=pp(t.p),after=S.pnum==='after',me=esc(meName());
+  return doBox('Запись создана в '+t.log[0][1]+'. Ждём, когда клиент нажмёт «Да, передать»','В записи — время, вы и партнёр: по ней видно, чей клиент. '+(after?'Номер клиента партнёр увидит только после «Да».':'Партнёр уже видит номер клиента.'),'<button class="btn big" data-go="#/b/partners/'+t.id+'">'+ic('list-check')+'Открыть передачу</button>')
+   +'<div class="vrs">'+vr('pnum')+vr('pterm')+'</div>'
+   +'<div class="two"><div>'+h2('Что получит клиент',EG)+phoneBox('Клиент','сообщение бота','<div class="bub">'+cliMsg(p,me)+'</div>'+cliKb(),'Клиент '+esc(t.cl)+' отвечает одной кнопкой.',true)+'</div>'
+   +'<div>'+h2('Что видит партнёр',EG)+'<div class="msg"><span class="cap">'+esc(p.n)+' · до ответа клиента</span><p class="q">'+(after?'К вам идёт заявка от агента '+me+': '+esc(t.what)+'. Номер клиента откроется, когда клиент подтвердит.':'Заявка от агента '+me+': '+esc(t.what)+'. Клиент: '+esc(t.cl)+', номер открыт.')+'</p></div>'
+   +(t.nb?'<div class="msg" style="margin-top:10px"><span class="cap">Клиента ещё нет в боте</span><p>Перешлите ему ссылку на передачу: он откроет бота и ответит одной кнопкой.</p><div class="linkbox"><span>platforma.example/t/КОД-ПЕРЕДАЧИ</span><button class="btn" data-act="pcopyt">'+ic('copy')+'Скопировать</button></div></div>':'')
+   +'<div class="pact"><button class="btn ghost" data-act="pmore">'+ic('plus')+'Передать ещё одного клиента</button><button class="btn ghost" data-go="#/b/partners/list">Мои передачи</button></div></div></div>';
+}
+function partnersSend(){
+  var last=ptBy(PLAST);
+  if(last)return sentHTML(last);
+  var list=allPP(),mine=PS.src==='my';
+  return '<div class="form"><div class="lead" style="margin:0"><h1>Передать клиента своему специалисту</h1></div><p class="sub" style="margin:0">Три поля. Запись «чей клиент» создаётся в момент нажатия; '+(S.pnum==='after'?'номер клиента партнёр увидит только после того, как клиент ответит «Да, передать».':'номер клиента партнёр увидит сразу.')+'</p>'
+   +'<div><span class="sub" style="display:block;margin:0 0 6px">Клиент</span>'+segHTML('psrc',[['my','Из моих клиентов'],['new','Новый']],PS.src)+'</div>'
+   +(mine?'<label>Кого передаём<select data-f="ps:cl">'+MYCL.map(function(c){return '<option value="'+c[0]+'"'+(PS.cl===c[0]?' selected':'')+'>'+c[1]+' — '+c[2]+'</option>'}).join('')+'</select></label>'
+     :'<div class="two"><label>Имя клиента<input data-f="ps:name" value="'+esc(PS.name)+'" placeholder="Как к нему обращаться"></label><label>Номер телефона<input type="tel" data-f="ps:tel" value="'+esc(PS.tel)+'" placeholder="+7"></label></div>')
+   +'<label>Кому<select data-f="ps:p">'+list.map(function(p){return '<option value="'+p.id+'"'+(PS.p===p.id?' selected':'')+'>'+esc(p.n)+' — '+catOf(p.cat)[2].toLowerCase()+'</option>'}).join('')+'</select></label>'
+   +'<label>Одна строка: что нужно клиенту<input data-f="ps:what" value="'+esc(PS.what)+'" placeholder="Нужен ремонт двухкомнатной квартиры"></label>'
+   +'<div class="pact"><button class="btn big" data-act="psend">'+ic('send')+'Передать</button></div>'
+   +'<div class="vrs" style="margin:6px 0 0">'+vr('pnum')+'</div>'
+   +'<p class="sub" style="margin:0">Нужного специалиста нет в списке? <button class="lnk" data-go="#/b/partners">Добавить специалиста</button></p><p class="sub" style="margin:0">Клиент покупает или продаёт в другом городе? <button class="lnk" data-go="#/b/deals/new">Рынок сделок</button></p></div>';
+}
+function sendClient(){
+  var mine=PS.src==='my',c=MYCL.filter(function(x){return x[0]===PS.cl})[0]||MYCL[0],name=mine?c[1]:PS.name.trim();
+  if(!name){toast('Впишите имя клиента');return false}
+  var t={id:'x'+Date.now().toString(36),p:PS.p||allPP()[0].id,cl:name,what:PS.what.trim()||'Нужна консультация специалиста',my:true,nb:!mine,log:[[TD,nowHM(),'new']]};
+  S.ptx.unshift(t);PLAST=t.id;PS={src:'my',cl:'c1',name:'',tel:'',p:'',what:''};
+  return true;
+}
+
+/* --- вкладка "Мои передачи" и карточка передачи --- */
+function tTags(t){
+  var st=tSt(t),g=tGrp(st);
+  return '<span class="tag'+(g==='done'?' a':g==='bad'?' w':'')+'">'+(g==='done'?ic('check'):'')+PST[st]+'</span>'+(tHas(t,'mis')?'<span class="tag w">'+ic('alert-circle')+'Расхождение</span>':'')+(st==='noc'?'<span class="tag dash">запись остаётся с пометкой</span>':'')+(t.my?'<span class="tag">создана в макете</span>':'');
+}
+function deadText(t){
+  var st=tSt(t),d=tDead(t);
+  return st==='done'||st==='fail'||st==='drop'?'закрыта':st==='exp'?'вышел '+fd(d):d?'до '+fd(d):'без срока';
+}
+function tCard(t){
+  var p=pp(t.p),last=t.log[t.log.length-1];
+  return '<button class="deal" data-go="#/b/partners/'+t.id+'"><span class="tags">'+tTags(t)+'</span><span class="rt">'+esc(t.cl)+ic('arrow-right')+esc(p.n)+'</span><p>'+esc(t.what)+'</p>'
+   +'<span class="kv"><span>Категория: <b>'+catOf(p.cat)[2].toLowerCase()+'</b></span><span>Передан: <b>'+t.log[0][0]+'</b></span><span>Последнее событие: <b>'+last[0]+'</b></span><span>Запись: <b>'+deadText(t)+'</b></span></span></button>';
+}
+function partnersList(){
+  var list=allT(),f=S.ptf,s=pStat('',''),mis=list.filter(function(t){return tHas(t,'mis')})[0];
+  var top=mis?doBox('Одна передача с расхождением: партнёр отметил одно, клиент ответил другое','Откройте её: в журнале видно каждое нажатие агента, клиента и партнёра с временем.','<button class="btn big" data-go="#/b/partners/'+mis.id+'">'+ic('alert-circle')+'Открыть расхождение</button>','w')
+    :doBox('Здесь видно, чем кончилась каждая передача','Каждое нажатие агента, клиента и партнёра — строка журнала с временем.',sendBtn());
+  if(f==='work')list=list.filter(function(t){return tGrp(tSt(t))==='work'});
+  else if(f==='closed')list=list.filter(function(t){return tGrp(tSt(t))!=='work'});
+  return top
+   +'<div class="metrics">'+[[s.tot,'всего передач'],[s.work,'в работе'],[s.done,'выполнено'],[s.bad,'не состоялось или вышел срок']].map(function(x){return '<div class="metric"><b>'+x[0]+'</b><small>'+x[1]+'</small></div>'}).join('')+'</div>'
+   +'<div class="segrow" style="margin-top:16px">'+segHTML('ptf',[['all','Все'],['work','В работе'],['closed','Завершённые']],f)+EG+'</div>'
+   +(list.length?'<div class="deals">'+list.map(tCard).join('')+'</div>'
+     :'<div class="empty">'+ic('list-check')+'<b>В этом списке пока пусто</b><p>Передайте клиента своему специалисту: передача появится здесь со статусом «Ждёт клиента».</p><div class="pact" style="justify-content:center">'+sendBtn()+'</div></div>')
+   +'<div class="vrs" style="margin-top:16px">'+vr('pterm')+vr('pnoc')+'</div>'
+   +'<p class="sub">Статусы: ждёт клиента → принял → связался → договор → выполнено / не состоялось / срок вышел. Отметки ставит партнёр; итог подтверждает клиент.</p>';
+}
+function tSteps(t){
+  var st=tSt(t),reach=0,noc=st==='noc'||st==='drop',fin=st==='done',bad=st==='fail'||st==='exp',ok=tHas(t,'yes');
+  t.log.forEach(function(e){var i=PSI[e[2]];if(i>reach&&i<4)reach=i});
+  var chips=[[ok?'Клиент подтвердил':noc?PST[st]:'Ждёт клиента',noc?'bad':'on',ok]];
+  ['Принял','Связался','Договор'].forEach(function(n,i){chips.push([n,i+1<=reach?'on':'',i+1<=reach])});
+  chips.push([fin?'Выполнено':bad?PST[st]:'Выполнено или не состоялось',fin?'on':bad?'bad':'',fin]);
+  return '<div class="stp">'+chips.map(function(c,i){return (i?ic('chevron-right'):'')+'<span class="'+c[1]+'">'+(c[2]?ic('check'):'')+c[0]+'</span>'}).join('')+'</div>';
+}
+function evText(t,e){
+  var c=e[2],x=PEV[c][1];
+  if(c==='new'&&S.pnum==='now')x+='. Партнёр сразу видит номер клиента';
+  if(c==='yes'&&S.pnum==='after')x+='. Партнёру открыт номер клиента';
+  if(c==='ansyes'&&t.rate)x+=' и поставил оценку '+t.rate+' из 5';
+  return x;
+}
+function tLog(t){
+  var st=tSt(t),last=t.log[t.log.length-1],rows=t.log.map(function(e){return [e[0]+' · '+e[1]+' · '+PEV[e[2]][0],evText(t,e)]});
+  if(st==='exp')rows.push([fd(tDead(t)).slice(0,5)+' · Бот','Срок записи вышел: итоговой отметки партнёра нет']);
+  if(st==='noc')rows.push([last[0]+' · '+last[1]+' · Бот','Запись остаётся с пометкой «клиент не подтвердил»']);
+  if(st==='drop')rows.push([last[0]+' · '+last[1]+' · Бот','Запись снята: клиент не подтвердил передачу']);
+  return rows;
+}
+function tExtract(t){return ['Выписка по передаче (пример): '+t.cl+' → '+pp(t.p).n+', '+t.what].concat(tLog(t).map(function(r){return r[0]+' — '+r[1]})).join('\n')}
+function tNext(t){if(!t.my)return null;var st=tSt(t);if(st==='noc'||st==='drop'||st==='exp'||st==='fail')return null;return PNX.filter(function(n){return !tHas(t,n[0])})[0]||null}
+function tAction(t){
+  var st=tSt(t),nx=tNext(t),demo=nx?'<button class="btn big" data-act="pnext:'+t.id+'">'+ic('player-play')+'В макете: '+nx[1]+'</button>':'';
+  if(tHas(t,'mis'))return doBox('Расхождение: партнёр отметил «Не состоялось», клиент ответил «Ещё в процессе»','Передачу разбирает ответственный (решить, кто отвечает). Он получает выписку: все строки журнала с временем.','<button class="btn big" data-act="pcopylog:'+t.id+'">'+ic('copy')+'Скопировать выписку</button>','w');
+  if(st==='wait')return doBox('Запись создана. Ждём, когда клиент нажмёт «Да, передать»',S.pnum==='after'?'До ответа клиента партнёр видит только, что к нему идёт заявка и от кого. Номер откроется после «Да».':'Партнёр уже видит номер клиента. Ответ клиента подтверждает, от какого агента он пришёл.',demo);
+  if(st==='noc')return doBox('Клиент нажал «Не нужно». Запись остаётся с пометкой','Номер партнёру не открыт. Если клиент всё же придёт к этому партнёру, спор разбирает ответственный (решить, кто отвечает).','');
+  if(st==='drop')return doBox('Клиент нажал «Не нужно». Запись снята','Передача не считается: в счёт рекомендаций она не попадает.','');
+  if(st==='exp')return doBox('Срок записи вышел '+fd(tDead(t)),'Итоговой отметки партнёра нет. '+(S.pterm==='90'?'Каждая новая отметка продлила бы запись ещё на 90 дней.':'Запись действовала 180 дней с момента создания.'),'','w');
+  if(st==='done')return doBox('Работа выполнена'+(tHas(t,'ansyes')&&t.rate?'. Клиент подтвердил и поставил '+t.rate+' из 5':''),tHas(t,'ansyes')?'Отметка партнёра и ответ клиента совпали. Передача вошла в счёт рекомендаций.':'Бот спросит клиента, состоялась ли работа, и сверит ответ с отметкой партнёра.',demo);
+  if(st==='fail')return doBox('Партнёр отметил: не состоялось','Бот сверит отметку с ответом клиента. Клиент остаётся вашим.','');
+  return doBox('Передача в работе: '+(st==='yes'?'клиент подтвердил, ждём партнёра':'партнёр отметил «'+PST[st]+'»'),'О каждой отметке партнёра вам приходит сообщение.'+(st==='contract'&&!tHas(t,'ask')?' Через 7 дней после «Договор» бот спросит клиента, состоялась ли работа (срок — предложение).':''),demo);
+}
+function transferPage(t){
+  var p=pp(t.p),st=tSt(t),d=tDead(t);
+  var ans=tHas(t,'ansyes')?'Да':tHas(t,'ansproc')?'Ещё в процессе':tHas(t,'ask')?'Не ответил':'Пока не спрашивали';
+  return '<article class="item" style="max-width:900px"><header><span class="tags">'+tTags(t)+EG+'</span><h1>'+esc(t.cl)+' → '+esc(p.n)+'</h1><p class="d">'+esc(t.what)+' · '+catOf(p.cat)[2].toLowerCase()+'</p></header>'
+   +'<div>'+tAction(t)+tSteps(t)+'</div>'
+   +'<div class="metrics"><div class="metric"><small>Запись действует</small><b style="font-size:20px">'+deadText(t)+'</b></div><div class="metric"><small>Ответ клиента</small><b style="font-size:20px">'+ans+'</b></div><div class="metric"><small>Оценка клиента</small><b style="font-size:20px">'+(tHas(t,'ansyes')&&t.rate?t.rate+' из 5':'—')+'</b></div></div>'
+   +'<div class="vrs" style="margin:0">'+vr('pterm')+(st==='wait'||st==='yes'?vr('pnum'):'')+(st==='wait'||st==='noc'||st==='drop'?vr('pnoc'):'')
+   +(S.ppct==='yes'?'<div class="vr"><span class="vl">Сумма заказа:</span>вписывает партнёр, подтверждает клиент<span class="tag dash">только в варианте «платформа берёт процент»</span></div>':'')+'</div>'
+   +'<div><h2 class="h2" style="margin-top:0">Партнёр</h2><div class="who"><button class="wl" data-go="#/b/partners/score"><span class="av">'+esc(ini(p.n))+'</span><span><b>'+esc(p.n)+'</b><small>'+esc(p.d)+'</small></span></button><span class="sc">'+pShort(p)+'</span></div></div>'
+   +'<div><h2 class="h2" style="margin-top:0">Журнал</h2><p class="sub">Каждое нажатие агента, клиента и партнёра — строка с временем. Строки только добавляются.</p><div class="hist">'+tLog(t).map(function(r){return '<div><small>'+r[0]+'</small>'+esc(r[1])+'</div>'}).join('')+'</div></div></article>';
+}
+
+/* --- вкладка "Счёт рекомендаций" --- */
+function pairCard(p){
+  var s=pStat(p.id,S.pper),q=pQr(p.id,S.pper),m=Math.max(1,q[0]);
+  function sg(c,n){return n?'<i class="'+c+'" style="flex:'+n+'"></i>':''}
+  return '<div class="pair"><div class="pair-h"><span class="av">'+esc(ini(p.n))+'</span><span class="t"><b>Вы ⇄ '+esc(p.n)+'</b><small>'+catOf(p.cat)[2]+' · '+esc(p.d)+'</small></span><button class="btn ghost" data-act="pto:'+p.id+'">'+ic('send')+'Передать</button></div>'
+   +(s.tot||q[0]?'<div class="two">'
+     +'<div><h3>Вы → партнёру: '+s.tot+' <small>'+plural(s.tot,'передача','передачи','передач')+'</small></h3><span class="sbar">'+sg('d',s.done)+sg('w',s.work)+sg('b',s.bad)+'</span>'
+     +'<span class="lg"><span><i class="d"></i>выполнено '+s.done+'</span><span><i class="w"></i>в работе '+s.work+'</span><span><i class="b"></i>не состоялось '+s.bad+'</span></span></div>'
+     +'<div><h3>Партнёр → вам: '+q[1]+' <small>'+plural(q[1],'заявка','заявки','заявок')+' по его QR-коду клуба друзей</small></h3><div class="fn">'
+     +[['Открыли бота',q[0]],['Оставили заявку',q[1]],['Сделки',q[2]]].map(function(x){return '<div><span>'+x[0]+'</span><span class="bw" style="--w:'+Math.round(x[1]/m*100)+'%"><i></i></span><b>'+x[1]+'</b></div>'}).join('')+'</div></div></div>'
+    :'<div class="pt free"><span class="ico">'+ic('arrows-left-right')+'</span><span class="t"><b>Счёт пока пустой</b><small>Передайте первого клиента или попросите специалиста поставить у себя QR-код клуба друзей.</small></span></div>')
+   +'</div>';
+}
+function partnersScore(){
+  var list=allPP(),s=pStat('',S.pper),q=[0,0,0];
+  list.forEach(function(p){pQr(p.id,S.pper).forEach(function(x,i){q[i]+=x})});
+  return doBox('Счёт по каждой паре: сколько клиентов вы передали партнёру и сколько пришло от него','Эти же числа видит партнёр — только числа, без имён клиентов. По счёту видно, с кем обмен взаимный.',sendBtn())
+   +'<div class="segrow">'+segHTML('pper',[['90','90 дней'],['all','Всё время']],S.pper)+EG+'</div>'
+   +'<div class="metrics">'+[[s.tot,'вы передали партнёрам'],[s.done,'из них выполнено'],[q[1],'заявок пришло от партнёров'],[q[2],'из них сделок']].map(function(x){return '<div class="metric"><b>'+x[0]+'</b><small>'+x[1]+'</small></div>'}).join('')+'</div>'
+   +h2('По парам',EG)+'<div class="pairs">'+list.map(pairCard).join('')+'</div>'
+   +'<p class="sub" style="margin-top:10px">«Не состоялось» — вместе с передачами, у которых вышел срок записи. Встречный поток считается по QR-коду клуба друзей, который стоит у партнёра.</p>'
+   +'<div class="vrs">'+vr('pqr')+vr('ppct')
+   +'<div class="vr"><span class="vl">Ограничение пилота:</span>QR-код у партнёра один; клиенты по нему закрепляются за агентом, который пригласил партнёра первым. Отдельный QR-код под каждого агента — следующая очередь.</div></div>';
+}
+
+/* --- вкладка "Глазами партнёра и клиента" --- */
+function partnersView(){
+  var me=esc(meName()),after=S.pnum==='after',t1=ptBy('t1'),d=tDead(t1);
+  var qrText={agency:'Что вы получаете за клиента по QR-коду, задаёт агентство: сумма за сделку, как участнику клуба, или только счёт.',sum:'За сделку клиента по QR-коду — сумма, как участнику клуба. Сумму задаёт агентство.',score:'Клиенты по QR-коду идут в счёт рекомендаций, без выплаты.'}[S.pqr];
+  var ph1=phoneBox('Партнёр','заявка',
+    '<span class="sys">Заявка приходит в личный чат с ботом</span>'
+    +'<div class="bub"><b>Заявка №12</b> от агента '+me+'<br>Клиент: Артём<br>Нужен ремонт двухкомнатной квартиры</div>'
+    +'<div class="bub">'+(after?'Клиент подтвердил 05.10 в 11:40 — номер открыт.':'Номер клиента открыт сразу.')+' '+(d?'Запись действует до '+fd(d)+'.':'Запись без срока.')+'</div>'
+    +kb(['Принял','Связался'],2)+kb(['Договор'])+kb(['Выполнено','Не состоялось'],2)
+    +'<div class="qrrow">'+qr('inl')+'<span><b>Мой QR-код клуба друзей</b><br>'+qrText+'</span></div>',
+    'Партнёр: заявка с пятью кнопками и его QR-код. Каждое нажатие видит агент.');
+  var ph2=phoneBox('Клиент','два сообщения',
+    '<span class="sys">Сразу после кнопки агента «Передать»</span>'
+    +'<div class="bub">Ваш агент '+me+' рекомендует специалиста по ремонту — Сергея К.'+(after?'<br><br>Передать ему ваш номер, чтобы он связался с вами? Позже я спрошу, как всё прошло.':' Он свяжется с вами.<br><br>Вас направил агент '+me+' — подтвердите, пожалуйста. Позже я спрошу, как всё прошло.')+'</div>'+cliKb()
+    +'<span class="sys">Через 7 дней после отметки «Договор»</span>'
+    +'<div class="bub">Ваш агент '+me+' рекомендовал вам Сергея К. Работа состоялась?</div>'+kb(['Да','Ещё в процессе','Нет'],3)
+    +'<div class="bub">Оцените работу от 1 до 5</div>'+kb(['1','2','3','4','5'],5),
+    'Клиент: два сообщения. Когда спрашивать — настройка: через 7 дней после «Договор» или через 30 дней без отметок (сроки — предложение).');
+  var must=S.prule==='must';
+  var ph3=phoneBox('Партнёр','вход по ссылке агента',
+    '<span class="sys">Специалист открыл ссылку агента</span>'
+    +'<div class="bub">Вас приглашает агент '+me+': он будет передавать вам клиентов, а ваши клиенты по QR-коду придут к нему.</div>'
+    +(S.pown==='form'?'<div class="bub">Заполните короткую анкету: чем занимаетесь, город, ссылки на работы и отзывы. После проверки вы появитесь в списке агента.</div>'+kb(['Заполнить анкету']):'')
+    +'<div class="bub"><b>'+(must?'Правило.':'Пожелание.')+'</b> Клиент считается переданным, когда запись о нём создана здесь. Нет записи — нет вознаграждения.'+(S.ppct==='yes'?' С заказов по переданным клиентам платформа берёт процент.':'')+'</div>'
+    +(must?kb(['Согласен']):'<span class="sys">Кнопки согласия нет: это просьба</span>'+kb(['Продолжить']))
+    +'<span class="sys">Дальше: номер телефона → личный код</span>'
+    +'<div class="bub">Готово. Здесь ваши заявки от агентов, QR-код и счёт рекомендаций.</div>'
+    +kb(['Заявки от агентов','Мой QR-код'],2)+kb(['Счёт рекомендаций','Как это работает'],2),
+    'Партнёр: вход по ссылке агента. Текст правила — черновик, до включения его смотрит юрист.');
+  var steps=[['Агент','Нажимает «Передать клиента» и выбирает специалиста'],['Бот','Создаёт запись: время, агент, партнёр. '+termText()],['Клиент','Отвечает боту: «'+(after?'Да, передать':'Да, подтверждаю')+'»'],['Партнёр',after?'Видит заявку и нажимает «Принял». Номер открыт':'Видит заявку и номер сразу, нажимает «Принял»'],['Партнёр','Отмечает «Связался», затем «Договор»'],['Партнёр','Отмечает «Выполнено» или «Не состоялось»'],['Клиент','Отвечает, состоялась ли работа, и ставит оценку'],['Бот','Сверяет ответ с отметкой. Счёт рекомендаций обновлён']];
+  return doBox('Так выглядят сообщения бота у партнёра и у клиента','Три экрана: заявка у партнёра, два вопроса клиенту и вход партнёра по ссылке агента. Тексты — черновики.','<button class="btn big" data-go="#/b/partners/send">'+ic('send')+'Попробовать: передать клиента</button>')
+   +'<div class="vrs">'+vr('pnum')+vr('prule')+vr('pown')+vr('pqr')+'</div>'
+   +'<div class="phones">'+ph1+ph2+ph3+'</div>'
+   +h2('Путь заявки: восемь шагов',EG)+'<div class="chain">'+steps.map(function(x,i){return '<div><b>'+(i+1)+' · '+x[0]+'</b>'+x[1]+'</div>'}).join('')+'</div>'
+   +'<p class="sub">Запись появляется раньше, чем партнёр узнаёт номер клиента. О каждой отметке партнёра агент получает сообщение; все нажатия идут в журнал.</p>';
+}
+
+/* --- вкладка "Каталог" (следующая очередь) и раздел директора --- */
+var PCATA=[['palette','Дизайнеры','Портфолио, город, условия для клиентов платформы.'],['hammer','Ремонт и бригады','Кто делает, в каких городах, отзывы агентов.'],['armchair','Мебель','Салоны и производства со специальными условиями.'],['home-check','Ипотека и страхование','Брокеры и страховые специалисты, с которыми уже работают агенты сети.'],['building-skyscraper','Коммерческая недвижимость','Специалисты по помещениям под бизнес.'],['plug-connected','Слаботочные системы','Интернет, видеонаблюдение, умный дом.'],['dots','Другие услуги','Всё, что нужно клиенту после покупки.']];
+/* свободные категории в районе: название, сколько партнёров уже есть */
+var PFREE=[['Дизайнеры',0],['Мебель',0],['Слаботочные системы',0],['Ремонт и бригады',2],['Ипотека и страхование',1]];
+function partnersCat(){
+  return doBox('Общий каталог партнёров платформы — следующая очередь','Сначала каждый агент работает со своими специалистами. В общий каталог партнёр попадает через анкету и проверку.','<button class="btn big" data-act="poffer">'+ic('plus')+'Предложить партнёра</button>')
+   +h2('Категории каталога',IDEA)+'<div class="cards">'+PCATA.map(function(c){return '<div class="card"><h2>'+ic(c[0])+c[1]+'</h2><p>'+c[2]+'</p><div class="tags"><span class="tag dash">заглушка</span></div></div>'}).join('')+'</div>'
+   +h2('Свободные категории в вашем районе',EG+IDEA)+'<p class="sub">В свободную категорию можно предложить своего специалиста.</p>'
+   +'<div class="pts" style="max-width:900px">'+PFREE.map(function(f){return '<div class="pt pw '+(f[1]?'taken':'free')+'"><span class="ico">'+ic(f[1]?'users':'plus')+'</span><span class="t"><b>'+f[0]+'</b><small>'+(f[1]?f[1]+' '+plural(f[1],'партнёр','партнёра','партнёров')+' в районе':'Свободно: партнёров пока нет')+'</small></span>'+(f[1]?'':'<button class="btn ghost" data-act="poffer">Предложить партнёра</button>')+'</div>'}).join('')+'</div>'
+   +'<div class="vrs" style="margin-top:16px"><div class="vr"><span class="vl">Сколько партнёров на категорию в районе:</span>один <span class="sl">/</span> несколько <span class="sl">/</span> без ограничения'+UND+'</div>'
+   +'<div class="vr"><span class="vl">Кто проверяет анкету партнёра и в какой срок:</span>решить, кто отвечает'+UND+'</div></div>';
+}
+function partnersAgency(){
+  if(S.role!=='dir')return '<div class="notice">'+ic('crown')+'<div><b>Раздел для директора агентства</b><p>Сводка по агентам и четыре показателя пилота. Переключите «Кто смотрит» на директора.</p></div><button class="btn" data-act="role:dir">Смотреть как директор</button></div>';
+  var P=PIL,k=[
+   ['Без итоговой отметки',P.nofin,P.old,'передач старше 30 дней','передачи старше 30 дней без «Выполнено» и «Не состоялось» ÷ все передачи старше 30 дней'],
+   ['Расхождения отметок',P.mis,P.ans,'передач с ответом клиента','ответ клиента не совпал с отметкой партнёра ÷ передачи с ответом клиента'],
+   ['Повторные передачи',P.rep,P.pairs,'пар «агент — партнёр»','пары с двумя и более передачами ÷ пары хотя бы с одной']
+  ];
+  return doBox('Четыре показателя пилота: по ним видно, приживается ли передача клиентов через запись','Сводка собирается из журнала передач: вручную ничего не вносится. Расхождения разбирает ответственный (решить, кто отвечает).','<button class="btn big" data-go="#/b/partners/t4">'+ic('alert-circle')+'Посмотреть пример расхождения</button>')
+   +h2('Показатели пилота',EG)+'<div class="pil">'
+   +k.map(function(x){var v=pct(x[1],x[2]);return '<div class="metric"><small>'+x[0]+'</small><b>'+v+'%</b><span class="bw" style="--w:'+v+'%"><i></i></span><p>'+x[1]+' из '+x[2]+' '+x[3]+'</p><p class="f">Как считаем: '+x[4]+'</p></div>'}).join('')
+   +'<div class="metric"><small>Встречный поток</small><b>'+P.qo+' → '+P.qr+' → '+P.qd+'</b><div class="fn">'+[['Открыли бота',P.qo],['Оставили заявку',P.qr],['Сделки',P.qd]].map(function(x){return '<div><span>'+x[0]+'</span><span class="bw" style="--w:'+pct(x[1],P.qo)+'%"><i></i></span><b>'+x[1]+'</b></div>'}).join('')+'</div><p class="f">Как считаем: сколько людей открыли бота по QR-кодам партнёров, сколько из них оставили заявку, сколько сделок</p></div></div>'
+   +'<p class="sub" style="margin-top:8px">Порог 30 дней — предложение. Целевых значений нет: на пилоте показатели только измеряются.</p>'
+   +h2('По агентам',EG)+'<div class="tree" style="max-width:900px">'+PAGT.map(function(a){
+     return a[1]?'<div class="node nw"><span class="av">'+ini(a[0])+'</span><span class="t"><b>'+a[0]+'</b><small>партнёров '+a[1]+' · передач '+a[2]+' · выполнено '+a[3]+'</small></span><span class="tags">'+(a[4]?'<span class="tag">без итоговой отметки '+a[4]+'</span>':'')+(a[5]?'<span class="tag w">расхождений '+a[5]+'</span>':'')+(!a[4]&&!a[5]?'<span class="tag a">'+ic('check')+'всё отмечено</span>':'')+'</span></div>'
+      :'<div class="node off"><span class="av">'+ini(a[0])+'</span><span class="t"><b>'+a[0]+'</b><small>Партнёров пока нет. Подскажите агенту добавить первого специалиста: кнопка «Добавить специалиста» во вкладке «Мои партнёры».</small></span></div>';
+   }).join('')+'</div>'
+   +'<div class="vrs" style="margin-top:16px">'+vr('pqr')+vr('ppct')+'</div>';
+}
+function partnersPage(sub){
+  var t=ptBy(sub);
+  if(t)return transferPage(t);
+  var tabs=[['','Мои партнёры','heart-handshake'],['send','Передать клиента','send'],['list','Мои передачи','list-check'],['score','Счёт рекомендаций','arrows-left-right'],['view','Глазами партнёра и клиента','device-mobile'],['cat','Каталог','category'],['agency','Партнёры агентства','crown']];
+  var cur=tabs.some(function(x){return x[0]===sub})?sub:'';
+  var f={send:partnersSend,list:partnersList,score:partnersScore,view:partnersView,cat:partnersCat,agency:partnersAgency}[cur]||partnersMy;
+  return tabsHTML('#/b/partners',tabs,cur)+f();
+}
+var PAGES={cities:citiesPage,deals:dealsPage,invite:invitePage,partners:partnersPage},VIEWS={staff:staffView,dept:deptView};
 /* обновление расчётов при движении ползунка без перерисовки страницы */
 function upd(what){
   var i,els;
@@ -1590,6 +1997,8 @@ function syncH(){document.documentElement.style.setProperty('--tool-h',$('#tool'
 function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){el.classList.remove('show')},2600)}
 function render(){
   var r=route(),key=location.hash||'#/';
+  /* экран "запись создана" показываем, только пока человек не ушёл со вкладки "Передать клиента" */
+  if(!(r.v==='block'&&r.id==='partners'&&r.sub==='send'))PLAST='';
   document.documentElement.setAttribute('data-skin',S.skin);
   document.body.classList.toggle('panel-open',!!S.panel);
   $('#tool').innerHTML=toolHTML();
@@ -1603,6 +2012,9 @@ function render(){
   $('#sheet').innerHTML=sheetHTML(r);
   syncH();
   if(key!==lastKey){window.scrollTo(0,scrolls[key]||0);lastKey=key}
+  /* длинная лента вкладок на телефоне: текущая вкладка всегда в поле зрения */
+  var tb=$('.tabs'),ct=$('.tabs .cur');
+  if(tb&&ct&&tb.scrollWidth>tb.clientWidth)tb.scrollLeft+=ct.getBoundingClientRect().left-tb.getBoundingClientRect().left-(tb.clientWidth-ct.offsetWidth)/2;
   if(FOCUS){var fe=$('#'+FOCUS);FOCUS='';if(fe){fe.focus();fe.scrollIntoView({block:'center'})}}
 }
 var FOCUS='';
@@ -1613,7 +2025,7 @@ function addBlock(){
   var id='c'+Date.now().toString(36);
   S.custom.push({id:id,title:name});S.order.push(id);S.acc[id]={dir:true,agent:true};
 }
-function back(){var r=route();if(NOTE_OPEN){NOTE_OPEN=false;render();return}if(S.panel){S.panel=false;save();render();return}if(r.v==='item')location.hash='#/b/'+r.id;else if(r.v==='block'&&r.id==='deals'&&r.sub)location.hash='#/b/deals';else if(r.v==='anketa'||r.v==='course')location.hash='#/verify';else if(r.v!=='home')location.hash='#/'}
+function back(){var r=route();if(NOTE_OPEN){NOTE_OPEN=false;render();return}if(S.panel){S.panel=false;save();render();return}if(r.v==='item')location.hash='#/b/'+r.id;else if(r.v==='block'&&r.id==='deals'&&r.sub)location.hash='#/b/deals';else if(r.v==='block'&&r.id==='partners'&&ptBy(r.sub))location.hash='#/b/partners/list';else if(r.v==='anketa'||r.v==='course')location.hash='#/verify';else if(r.v!=='home')location.hash='#/'}
 
 document.addEventListener('click',function(e){
   var g=e.target.closest('[data-go]');
@@ -1649,6 +2061,20 @@ document.addEventListener('click',function(e){
   else if(act==='verok'){S.ver=true;toast('Значок «проверенный агент» получен')}
   else if(act==='feed'){S.feed[x]=y;toast(y==='ok'?'Утверждено: сотрудник выполняет':'Возвращено сотруднику на доработку')}
   else if(act==='feedall'){FEED.forEach(function(f){if(!S.feed[f[0]])S.feed[f[0]]='ok'});toast('Всё утверждено')}
+  /* ---- v2: база партнёров ---- */
+  else if(act==='padd')S.padd=S.padd===x?'':x;
+  else if(act==='pjoin'){if(S.pjoin.indexOf(x)<0)S.pjoin.push(x);S.padd='';toast('Специалист вступил: он появился в вашем списке')}
+  else if(act==='pcopy'){copyText(pMsg(x),'Сообщение скопировано. Перешлите его специалисту');return}
+  else if(act==='pcopyt'){copyText('platforma.example/t/КОД-ПЕРЕДАЧИ','Ссылка скопирована. Перешлите её клиенту');return}
+  else if(act==='pto'){PS.p=x;PLAST='';scrolls[location.hash||'#/']=window.scrollY;if(location.hash==='#/b/partners/send')render();else location.hash='#/b/partners/send';return}
+  else if(act==='psrc')PS.src=x;
+  else if(act==='psend'){if(!sendClient())return;save();render();window.scrollTo(0,0);toast('Запись создана. Клиенту ушло сообщение');return}
+  else if(act==='pmore')PLAST='';
+  else if(act==='pnext'){var pt=ptBy(x),pn=pt?tNext(pt):null;if(!pn)return;pt.log.push([TD,nowHM(),pn[0]]);if(pn[0]==='ansyes')pt.rate=5;toast('В макете: '+pn[1])}
+  else if(act==='pcopylog'){var pl=ptBy(x);if(pl)copyText(tExtract(pl),'Выписка скопирована');return}
+  else if(act==='poffer'){toast('В макете заявка не отправляется. В рабочей версии откроется анкета партнёра');return}
+  else if(act==='ptf')S.ptf=x;
+  else if(act==='pper')S.pper=x;
   else if(act==='hback'){history.back();return}
   else if(act==='paid')S.paid=x==='1';
   else if(act==='renew'){S.paid=true;toast('В макете подписка снова активна')}
@@ -1666,7 +2092,7 @@ document.addEventListener('click',function(e){
   else if(act==='eg'){if(!doAsk(EXAMPLES[+x]))return}
   else if(act==='send'){if(ASK){addReq(ASK.q);ASK.sent=true}}
   else if(act==='mic'){toast('В макете голос не подключён. В рабочей версии здесь запись голоса');return}
-  else if(act==='reset'){var keep={skin:S.skin,panel:S.panel};try{localStorage.removeItem(KEY)}catch(err){}S=defaults();S.skin=keep.skin;S.panel=keep.panel;ASK=null;QTXT='';ND={to:'Москва',what:'',bud:'',term:''};toast('Макет сброшен к исходному виду')}
+  else if(act==='reset'){var keep={skin:S.skin,panel:S.panel};try{localStorage.removeItem(KEY)}catch(err){}S=defaults();S.skin=keep.skin;S.panel=keep.panel;ASK=null;QTXT='';ND={to:'Москва',what:'',bud:'',term:''};PS={src:'my',cl:'c1',name:'',tel:'',p:'',what:''};PLAST='';toast('Макет сброшен к исходному виду')}
   else if(act==='copy'){copyText(summary(),'Сборка скопирована. Отправьте её автору макета');return}
   else if(act==='note')NOTE_OPEN=!NOTE_OPEN;
   else if(act==='notesave'){
@@ -1692,6 +2118,7 @@ document.addEventListener('input',function(e){
     if(t.type==='range')t.style.setProperty('--p',Math.round((t.value-t.min)/(t.max-t.min)*100)+'%');
     if(p[0]==='ank'){S.ank[p[1]]=t.value;save()}
     else if(p[0]==='nd')ND[p[1]]=t.value;
+    else if(p[0]==='ps')PS[p[1]]=t.value;
     else if(p[0]==='calc'){S.calc[p[1]]=+t.value;save();upd('calc')}
     else if(p[0]==='share'){S.share=+t.value;save();upd('share')}
   }
