@@ -376,6 +376,59 @@ body.note-open .sheet{display:grid}
 
 /* ===== v2: маршрут новичка, города и точки, партнёрская программа, рынок сделок, профиль, цифровые сотрудники ===== */
 :root{--warn:#b4531f;--warn-soft:#fbe7d8}
+/* ===== 12.10: всё новое помечено одним цветом (фиолетовый не занят ни одним оформлением) ===== */
+:root{--nw:#7a3ff2;--nw-soft:#f0e9ff;--nw-ink:#4b1fb0}
+.nwb{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;line-height:1.4;padding:1px 8px;border-radius:999px;background:var(--nw);color:#fff;white-space:nowrap;vertical-align:middle}
+.tile.isnew,.sec.isnew,.card.isnew{border-color:var(--nw);box-shadow:inset 0 0 0 1px var(--nw);background:var(--nw-soft)}
+.tile.isnew .ico{background:var(--surface);color:var(--nw-ink)}
+li.isnew{color:var(--nw-ink);background:var(--nw-soft);border-radius:6px;padding:2px 8px;margin-left:-8px;box-shadow:inset 3px 0 0 var(--nw)}
+/* добавленный пункт меню - заливка и полоса слева; точка - внутри старого блока появилось новое */
+.nav.isnew{background:var(--nw-soft);color:var(--nw-ink);box-shadow:inset 3px 0 0 var(--nw)}
+.nwdot{width:8px;height:8px;border-radius:50%;background:var(--nw);flex:none;margin-left:auto}
+/* добавленная строка внутри старой карточки */
+.nwline{display:grid;gap:2px;background:var(--nw-soft);box-shadow:inset 3px 0 0 var(--nw);border-radius:8px;padding:7px 10px}
+.nwp{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap;background:var(--nw-soft);box-shadow:inset 3px 0 0 var(--nw);border-radius:8px;padding:5px 10px;color:var(--nw-ink)}
+/* экран целиком новый: подсвечено всё его содержимое */
+.allnew .card,.allnew .sec,.allnew .metric{border-color:var(--nw);box-shadow:inset 0 0 0 1px var(--nw);background:var(--nw-soft)}
+.allnew .do:not(.w){background:var(--nw-soft);box-shadow:inset 0 0 0 1.5px var(--nw)}
+.allnew .tabs button{color:var(--nw-ink)}
+.allnew .tabs button.cur{border-color:var(--nw)}
+.allnew .card h2 .ti{color:var(--nw-ink)}
+/* 13.10: добавленные передачи, переключатель в конструкторе и пример запроса */
+.allnew .deal{border-color:var(--nw);box-shadow:inset 0 0 0 1px var(--nw);background:var(--nw-soft)}
+.pv.isnew{background:var(--nw-soft);box-shadow:inset 3px 0 0 var(--nw);border-radius:8px;padding:8px 10px}
+.egc.isnew{border-color:var(--nw);background:var(--nw-soft);color:var(--nw-ink)}
+.newbar{display:flex;gap:10px 16px;align-items:center;flex-wrap:wrap;padding:12px 18px;border-radius:var(--r-card);background:var(--nw-soft);border:1px solid var(--nw);margin-bottom:14px;color:var(--nw-ink);font-size:14px}
+.newbar .t{flex:1 1 300px}
+.newbar .t b{display:block;font-size:15px;font-weight:600}
+.newbar .btn{background:var(--nw);color:#fff}
+.newbar .btn.ghost{background:none;border-color:var(--nw);color:var(--nw-ink)}
+.tool .seg.nv button[aria-pressed="true"]{background:var(--nw);color:#fff;box-shadow:none}
+.why{display:grid;gap:4px;padding:16px 20px;border-radius:var(--r-card);border:1px solid var(--nw);box-shadow:inset 0 0 0 1px var(--nw);background:var(--nw-soft);margin-bottom:14px}
+.why h2{font-size:17px;font-weight:600;line-height:1.3;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.why p{color:var(--muted);font-size:14px;max-width:86ch}
+.pains{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px;font-size:13.5px;color:var(--muted)}
+.pain{padding:7px 14px;border-radius:999px;border:1.5px solid var(--nw);background:var(--nw-soft);font-size:14px;color:var(--nw-ink);text-align:left}
+.pain:hover{background:var(--surface)}
+.chcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:16px}
+.chrow{display:grid;grid-template-columns:minmax(110px,190px) minmax(0,1fr) 44px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.chrow:last-of-type{border-bottom:0}
+.chrow b{text-align:right;font-weight:600}
+.chbar{display:block;height:12px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.chbar i{display:block;height:100%;width:var(--w);border-radius:999px;background:var(--accent)}
+.chrow.down{color:var(--faint)}
+.chrow.down .chbar i{background:var(--warn);opacity:.35}
+.chrow.down b{color:var(--warn)}
+.chsum{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-top:6px}
+.chsum b{font-size:30px;font-weight:700;line-height:1.1}
+.chsum.bad b{color:var(--warn)}
+.cmp{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r-card);background:var(--surface);overflow:hidden;margin-bottom:16px}
+.cmpr{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.5fr) minmax(0,1fr) auto;gap:8px 14px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.cmpr:last-child{border-bottom:0}
+.cmpr b{font-weight:600}
+.cmpr span{color:var(--muted)}
+.cmpr small{color:var(--faint);font-size:12.5px}
+@media (max-width:900px){.cmpr{grid-template-columns:minmax(0,1fr)}.chrow{grid-template-columns:minmax(90px,130px) minmax(0,1fr) 40px}}
 .main{--seg-line:var(--line-strong);--seg-bg:var(--accent-soft);--seg-fg:var(--accent-ink)}
 .h2{font-size:16px;font-weight:600;margin:26px 0 10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .sub{font-size:13.5px;color:var(--muted);margin:0 0 10px;max-width:72ch}
@@ -746,7 +799,7 @@ var B=[
   {k:'Инструмент',t:'QR-точки в городе',d:'Кофейни, салоны красоты, рынки, автосалоны. Видно, откуда пришёл каждый человек.',body:['Список точек и свой QR для каждой','Сколько людей пришло с каждой точки','Табличка и листовка для печати']},
   {k:'Список',t:'Заявки',d:'Беру, начали работу, сделка, без сделки. Каждый шаг виден рекомендателю.',body:['Новые заявки с темой и ответами клиента','Смена статуса одной кнопкой','Уведомление рекомендателю на каждом шаге']},
   {k:'Список',t:'Клиенты и рекомендатели',d:'Кто кого привёл. Знакомый закрепляется за рекомендателем навсегда.',body:['Цепочки рекомендаций','Личный код каждого участника','Рейтинг самых активных']},
-  {k:'Набор',t:'Как получать клиентов',d:'Готовые пост, сторис, сообщение партнёру и знакомым с личным кодом.',body:['Пост и сторис с QR','Сообщение партнёру: салону, магазину, кофейне','Сообщение знакомым'],link:['#/b/partners','Специалисты, которым вы передаёте клиентов, возвращают их вам','Партнёр ставит у себя QR-код клуба друзей: его клиенты приходят к вам. Счёт взаимных рекомендаций — в «Базе партнёров».','Мои партнёры']},
+  {k:'Набор',t:'Как получать клиентов',d:'Готовые пост, сторис, сообщение партнёру и знакомым с личным кодом.',body:['Пост и сторис с QR','Сообщение партнёру: салону, магазину, кофейне','Сообщение знакомым'],nbody:['Офлайн-набор: листовка в почтовый ящик и листок на доску у подъезда с кодом клуба','Канал в Max: первые посты и приглашение для знакомых'],link:['#/b/partners','Специалисты, которым вы передаёте клиентов, возвращают их вам','Партнёр ставит у себя QR-код клуба друзей: его клиенты приходят к вам. Счёт взаимных рекомендаций — в «Базе партнёров».','Мои партнёры']},
   {k:'Настройка',t:'Вознаграждения',d:'Круги и суммы выплат рекомендателям задаёт агентство.',body:['Сколько кругов и какие суммы','Кому и за какую сделку начислено','Выплата только при статусе «Сделка»']},
   {k:'Список',t:'Агенты и рейтинг',d:'Пропуск для каждого агента, его клиенты и место в рейтинге.',only:'dir',body:['Выдать агенту пропуск в бота','Заявки и сделки по каждому агенту','Рейтинг агентов агентства']},
   {k:'Настройка',t:'Пульт: название, тексты, суммы',d:'Все тексты бота правятся без программиста.',only:'dir',body:['Название и контакты агентства','Тексты сообщений бота','Темы заявок и подарок за вступление']}
@@ -781,12 +834,13 @@ var B=[
   {k:'Группы',t:'Группы агентов',d:'Небольшие группы для регулярных встреч.',tag:'идея, не решено'}
  ]},
  {id:'tools',icon:'sparkles',title:'Нейросети и инструменты',sub:'Цифровые сотрудники, работа с нейросетями и наши готовые инструменты.',sections:[
-  {k:'Сотрудники',t:'Цифровые сотрудники',d:'Помощники, которые делают рутину за вас и приносят результат на утверждение.',tag:'замысел',view:'staff'},
-  {k:'Сотрудники',t:'Цифровой отдел агентства',d:'Администратор заявок, аналитик по агентам и лента «Что сотрудники сделали сегодня».',only:'dir',tag:'замысел',view:'dept'},
+  {k:'Сотрудники',t:'Цифровые сотрудники',d:'Помощники, которые делают рутину за вас и приносят результат на утверждение.',tag:'замысел',view:'staff',nin:true},
+  {k:'Сотрудники',t:'Цифровой отдел агентства',d:'Администратор заявок, аналитик по агентам и лента «Что сотрудники сделали сегодня».',only:'dir',tag:'замысел',view:'dept',nin:true},
   {k:'Видео',t:'Нейросети для агента',d:'С чего начать и что они делают за вас каждый день.'},
   {k:'Набор',t:'Готовые запросы',d:'Тексты объявлений, ответы клиентам, разбор встречи.'},
   {k:'Инструмент',t:'Бот планировок',d:'Бонус к клубу: понимает коды участников.'},
-  {k:'Инструмент',t:'Радар ВКонтакте',d:'Ловит обращения людей в группах и чатах.'}
+  {k:'Инструмент',t:'Радар ВКонтакте',d:'Ловит обращения людей в группах и чатах.'},
+  {k:'Урок',t:'Правила работы с нейросетью',d:'Короткий вводный урок: как получать от нейросети точный результат и где её нужно перепроверять.',neu:true,body:['Одна основная нейросеть в сильном режиме вместо десяти','Расскажите ей о себе: город, сегмент, типичный клиент','Давайте задачу целиком и просите готовый результат','Пусть сначала задаст вам десять вопросов','Цифры по ипотеке и срокам сверяйте с первоисточником']}
  ]},
  {id:'clientkit',icon:'folders',title:'Материалы для клиентов',sub:'Готовое, что агент отдаёт своему клиенту.',sections:[
   {k:'Памятка',t:'Памятки покупателю',d:'Что проверить перед сделкой, какие документы собрать.'},
@@ -808,12 +862,28 @@ var B=[
  {id:'market',icon:'chart-line',title:'Сводки рынка',sub:'Обновления рынка: коротко, что изменилось и что сказать клиенту.',sections:[
   {k:'Сводка',t:'Сводка недели',d:'Что изменилось на рынке, одним экраном.'},
   {k:'Статья',t:'Ипотека и субсидии: изменения',d:'Новые условия и что сказать клиенту.'},
-  {k:'Архив',t:'Архив сводок',d:'Все прошлые выпуски по датам.'}
+  {k:'Архив',t:'Архив сводок',d:'Все прошлые выпуски по датам.'},
+  {k:'Сводка',t:'Спецвыпуск: сбой площадок 8–12 октября',d:'Что перестало работать, что вернулось и что сделать агенту на этой неделе.',neu:true,body:['Хронология по дням: что и когда останавливалось','Что проверить в своих кабинетах на площадках','Три действия на неделю: копия базы, запасной канал, сообщение своим клиентам']}
  ]},
  {id:'team',icon:'users-group',title:'Команда агентства',sub:'Агенты агентства, их доступы и результаты.',sections:[
   {k:'Список',t:'Агенты агентства',d:'Добавить агента, выдать пропуск, убрать доступ.'},
   {k:'Сводка',t:'Кто как работает',d:'Заявки и сделки по каждому агенту.'},
   {k:'Настройка',t:'Доступы',d:'Кому из агентов какие блоки открыты.'}
+ ]},
+ /* 12.10: новый блок со своим экраном. neu - добавлено 12.10, выключается переключателем "Версия" */
+ {id:'channels',neu:true,icon:'chart-pie',title:'Мои каналы клиентов',page:'channels',meta:'Сводка · Max · Нейросети · Копии базы',sub:'Откуда приходят клиенты и что будет, если один канал остановится.',sections:[
+  {k:'Экран',t:'Сводка каналов',d:'Доля каждого канала в обращениях и зависимость от самого крупного.',sub:''},
+  {k:'Экран',t:'Реклама в Max',d:'Три способа показать себя в каналах Max и каналы своего города с ценами.',sub:'max'},
+  {k:'Экран',t:'Ответы нейросетей',d:'Что сделать, чтобы нейросети советовали вас: сайт, отзывы, экспертные тексты.',sub:'geo'},
+  {k:'Экран',t:'Офлайн и точки',d:'Листовка, листок на доску у подъезда и таблички с кодом клуба друзей.',sub:'off'},
+  {k:'Экран',t:'Моя база и копии',d:'Скачать свою базу и посмотреть, где лежат копии.',sub:'base'}
+ ]},
+ /* 13.10: новый блок со своим экраном. n13 - добавлено 13.10, выключается переключателем "Версия" (средняя кнопка) */
+ {id:'abroad',neu:true,n13:true,icon:'world',title:'Зарубежная недвижимость',page:'abroad',meta:'Страны · Передать клиента · Мои передачи',sub:'Клиент хочет купить за рубежом: передайте его партнёру в стране и следите за сделкой.',sections:[
+  {k:'Экран',t:'Страны',d:'Страны, где клиента примет партнёр: что продают, порог входа, условия.',sub:''},
+  {k:'Экран',t:'Передать клиента за рубеж',d:'Клиент хочет квартиру или дом за рубежом, в Дубае или во Вьетнаме: передать партнёру в стране кнопкой.',sub:'send'},
+  {k:'Экран',t:'Мои передачи за рубеж',d:'На каком шаге каждый клиент: принял, подбор, бронь, сделка.',sub:'list'},
+  {k:'Экран',t:'Материалы и эфиры',d:'Подборки и презентации для клиента, встречи с партнёром страны.',sub:'kit',tag:'замысел'}
  ]}
 ];
 
@@ -835,12 +905,17 @@ var V={
  pterm:{l:'Срок записи клиента',r:'90',o:[['90','90 дней с продлением при отметке'],['180','180 дней'],['none','без срока']]},
  pnoc:{l:'Клиент не подтвердил участие агента',r:'keep',o:[['keep','запись остаётся с пометкой, спор разбирает человек'],['drop','запись снимается']]},
  pqr:{l:'Партнёру за клиента по его QR-коду',r:'agency',o:[['agency','решает агентство'],['sum','сумма за сделку, как участнику клуба'],['score','только счёт']]},
- pnum:{l:'Когда партнёр видит номер клиента',r:'after',o:[['after','после «Да» клиента'],['now','сразу']]}
+ pnum:{l:'Когда партнёр видит номер клиента',r:'after',o:[['after','после «Да» клиента'],['now','сразу']]},
+ /* 13.10: зарубежная недвижимость. Решений нет; r - рекомендация макета; n13 - вариант виден только в версии 13.10 */
+ apart:{l:'Кто принимает клиента в стране',n13:true,o:[['dev','застройщик'],['agency','агентство недвижимости'],['broker','частный брокер']]},
+ arole:{l:'Роль агента в зарубежной сделке',n13:true,r:'pass',o:[['pass','передаёт клиента партнёру'],['self','ведёт клиента сам по объектам партнёра']]},
+ asoon:{l:'Страны, где партнёр ещё подключается',n13:true,r:'soon',o:[['soon','показывать как «скоро»'],['hide','не показывать']]},
+ apct:{l:'Доля платформы с зарубежной сделки',n13:true,o:[['no','платформа не берёт'],['yes','платформа берёт']]}
 };
-var VKEYS=['pay','circles','who','disc','exec','prof','mapm','ppct','pown','prule','pterm','pnoc','pqr','pnum'];
+var VKEYS=['pay','circles','who','disc','exec','prof','mapm','ppct','pown','prule','pterm','pnoc','pqr','pnum','apart','arole','asoon','apct'];
 var MODES=[['hand','вручную'],['semi','полуавтомат'],['auto','автомат']];
 /* какой цифровой сотрудник отвечает за раздел */
-var RESP={club:'Помощник по заявкам клуба',cities:'Смотритель карты',deals:'Диспетчер рынка сделок',invite:'Счетовод партнёрской программы',know:'Редактор материалов',live:'Организатор эфиров',tools:'Дежурный по запросам',clientkit:'Редактор материалов',partners:'Проверяющий партнёров',market:'Редактор сводки рынка',team:'Аналитик по агентам'};
+var RESP={club:'Помощник по заявкам клуба',cities:'Смотритель карты',deals:'Диспетчер рынка сделок',invite:'Счетовод партнёрской программы',know:'Редактор материалов',live:'Организатор эфиров',tools:'Дежурный по запросам',clientkit:'Редактор материалов',partners:'Проверяющий партнёров',market:'Редактор сводки рынка',team:'Аналитик по агентам',channels:'Аналитик каналов',abroad:'Диспетчер рынка сделок'};
 /* города: название, долгота, широта, статус (on - есть участники, wait - есть заявка и нет агента, empty - пусто), агентов, участников клубов, точек, заявок, сделок, сторона подписи */
 var C=[
  ['Санкт-Петербург',30.3,59.9,'on',14,412,26,61,9,'t'],['Москва',37.6,55.75,'on',11,305,19,48,7,'l'],['Архангельск',40.5,64.5,'on',3,128,7,14,3,'t'],
@@ -910,8 +985,14 @@ var STAFF=[
  ['headset','Помощник по заявкам клуба друзей','Отвечает новому участнику клуба, уточняет задачу, напоминает о заявках без ответа.','Ответ клиенту по существу и передачу заявки агенту.'],
  ['package','Упаковщик объекта','Собирает текст объявления, карточку объекта и описание планировки по вашим фото и заметкам.','Готовое объявление перед публикацией.'],
  ['clipboard-check','Секретарь сделки','Ведёт список документов и сроков, напоминает о ближайших датах.','Сообщения клиенту и изменения в графике сделки.'],
- ['speakerphone','Помощник по соцсетям','Готовит темы и черновики постов на неделю.','Каждый пост перед публикацией.']
+ ['speakerphone','Помощник по соцсетям','Готовит темы и черновики постов на неделю.','Каждый пост перед публикацией.'],
+ /* 12.10: пятый элемент - признак "новое" */
+ ['ad-2','Подборщик рекламных каналов','Собирает каналы вашего города в Max с ценой поста и ценой просмотра, отсеивает пустые.','Список каналов и текст поста перед оплатой.',1],
+ ['database-export','Хранитель базы','Раз в неделю делает копию вашей базы: клиенты, партнёры, передачи, коды клуба.','Напоминание, если копия старше недели.',1]
 ];
+/* 12.10: какую задачу сделки закрывает каждый сотрудник (по порядку STAFF и DEPT) */
+var STASK=['Первый ответ клиенту и запись на встречу','Упаковка объекта перед выходом в рекламу','Документы и сроки сделки','Поток обращений из соцсетей','Выбор, где показывать рекламу','Сохранность базы клиентов'];
+var DTASK=['Ни одна заявка не остаётся без ответа','Видно, кто из агентов доводит заявки до сделки'];
 var DEPT=[
  ['inbox','Администратор заявок','Распределяет заявки клуба между агентами и следит за сроком ответа.','Передачу заявки другому агенту.'],
  ['report-analytics','Аналитик по агентам','Собирает сводку: кто сколько заявок взял и сколько довёл до сделки.','Выводы и рекомендации в недельной сводке.']
@@ -943,7 +1024,11 @@ function defaults(){
   /* порядок блоков: база партнёров стоит второй, чтобы попасть в четвёрку рядом с клубом (просьба Дениса 06.10) */
   var ord=B.filter(function(b){return !b.core}).map(function(b){return b.id});
   ord.splice(ord.indexOf('partners'),1);ord.splice(1,0,'partners');
-  return {role:'dir',paid:true,mission:1,skin:'pearl',panel:false,order:ord,ov:2,off:[],acc:acc,custom:[],reqs:[],notes:[],
+  /* 12.10: новый блок "Мои каналы клиентов" встаёт пятым - первым в нижнем ряду; четвёрку рядом с клубом (решение 06.10) не трогаем */
+  ord.splice(ord.indexOf('channels'),1);ord.splice(4,0,'channels');
+  /* 13.10: блок "Зарубежная недвижимость" встаёт пятым, "Мои каналы клиентов" - шестым; место выбрано в макете, решения нет */
+  ord.splice(ord.indexOf('abroad'),1);ord.splice(4,0,'abroad');
+  return {neu:true,n13:true,apart:'agency',arole:'pass',asoon:'soon',apct:'no',atx:[],chdown:false,role:'dir',paid:true,mission:1,skin:'pearl',panel:false,order:ord,ov:2,off:[],acc:acc,custom:[],reqs:[],notes:[],
     /* v2: участник и его путь */
     ver:false,steps:[false,false,false,false,false],ank:{name:'',city:'Архангельск',years:'',kind:'agency',org:'',spec:'',site:'',soc:'',rev:''},quiz:[-1,-1,-1],
     /* v2: варианты "либо так, либо так" (по умолчанию - рекомендации макета, решений нет) */
@@ -964,9 +1049,9 @@ function setLvl(v){
 /* Замечания к макету */
 var NOTE_OPEN=false,NOTE_DRAFT='';
 function screenName(r){
-  if(r.v==='block'){var bb=get(r.id),sn={ru:'Россия',top:'Рейтинги',calc:'Калькулятор',open:'Открыть город','new':'Передать клиента',send:'Передать клиента',list:'Мои передачи',score:'Счёт рекомендаций',view:'Глазами партнёра и клиента',cat:'Каталог',agency:'Партнёры агентства'}[r.sub];return bb.title+(r.sub?' / '+(sn||(r.id==='partners'?'передача ':'заявка ')+r.sub):'')}
+  if(r.v==='block'){var bb=get(r.id),sn={ru:'Россия',top:'Рейтинги',calc:'Калькулятор',open:'Открыть город','new':'Передать клиента',send:'Передать клиента',list:'Мои передачи',score:'Счёт рекомендаций',view:'Глазами партнёра и клиента',cat:'Каталог',agency:'Партнёры агентства',max:'Реклама в Max',geo:'Ответы нейросетей',off:'Офлайн и точки',base:'Моя база и копии'}[r.sub];return bb.title+(r.sub?' / '+(sn||(r.id==='partners'?'передача ':'заявка ')+r.sub):'')}
   if(r.v==='item'){var b=get(r.id);return b.title+' / '+b.sections[r.n].t}
-  return {account:'Подписка и доступ',requests:'Мои запросы',profile:'Профиль агента',anketa:'Анкета агента',course:'Вводный курс',verify:'Как стать проверенным'}[r.v]||'Главная';
+  return {account:'Подписка и доступ',requests:'Мои запросы','new':'Что изменилось 12.10',profile:'Профиль агента',anketa:'Анкета агента',course:'Вводный курс',verify:'Как стать проверенным'}[r.v]||'Главная';
 }
 function notesText(){
   return ['Замечания к макету','Оформление: '+skinName()].concat(S.notes.map(function(n,i){return (i+1)+'. ['+n.w+'] '+n.t})).join('\n');
@@ -990,7 +1075,9 @@ function tabbarHTML(r){
 }
 
 /* Строка запроса. В макете поиск простой: совпадение слов запроса с названиями и описаниями разделов. */
-var EXAMPLES=['Клиент просит скидку с комиссии','Написать объявление о продаже двухкомнатной квартиры','Хочу лекцию про налоги при продаже','Хочу спикера: юрист по наследству','Клиенту нужен ремонт'];
+var EXAMPLES=['Клиент просит скидку с комиссии','Написать объявление о продаже двухкомнатной квартиры','Хочу лекцию про налоги при продаже','Хочу спикера: юрист по наследству','Клиенту нужен ремонт','Клиент хочет квартиру в Дубае'];
+/* 13.10: с какого номера примеры запроса добавлены 13.10 */
+var EG13=5;
 function findStaff(q){q=q.toLowerCase();for(var i=0;i<STAFFKEY.length;i++)if(STAFFKEY[i][0].test(q))return STAFFKEY[i][1];return -1}
 var STOP=['клиент','клиента','клиенту','клиенты','клиентов','агент','агента','агенту','хочу','нужен','нужна','нужно','надо','чтобы','какой','такой','такую','сделать','можно','было','очень','меня','свой','своя','хотелось','провели','провести','лекцию','лекция','лекции','спикер','спикера','эфир'];
 var CITY='Архангельск';
@@ -1001,6 +1088,7 @@ function findTools(q){
   if(!w.length)return [];
   var need=Math.max(1,Math.ceil(w.length*0.6)),res=[];
   [get('club')].concat(shown()).forEach(function(b){b.sections.forEach(function(s,i){
+    if(s.neu&&!S.neu)return;
     var hay=(b.title+' '+s.t+' '+s.d).toLowerCase(),score=w.filter(function(x){return hay.indexOf(x)>-1}).length;
     if(score>=need)res.push({b:b,s:s,i:i,score:score});
   })});
@@ -1022,10 +1110,14 @@ function doAsk(q){
 function all(){return B.concat(S.custom.map(function(c){return {id:c.id,icon:'box',title:c.title,sub:'Свой блок-заглушка.',sections:[],custom:true}}))}
 function get(id){return all().filter(function(b){return b.id===id})[0]}
 function load(){
-  var s=defaults();
+  var s=defaults(),mig=false,mig13=false;
   try{
     var raw=localStorage.getItem(KEY);
     if(raw){var o=JSON.parse(raw);for(var k in o)if(k in s)s[k]=o[k];
+      /* у тех, кто открывал макет до 13.10, блока "Зарубежная недвижимость" в сохранённом порядке нет: один раз ставим его пятым */
+      if(!('n13' in o))mig13=true;
+      /* у тех, кто открывал макет до 12.10, нового блока в сохранённом порядке нет: один раз ставим его пятым */
+      if(!('neu' in o))mig=true;
       /* у тех, кто открывал макет до 06.10, сохранён старый порядок: один раз поднимаем базу партнёров в первую четвёрку */
       if(!('ov' in o)){var pi=s.order.indexOf('partners');if(pi>3){s.order.splice(pi,1);s.order.splice(1,0,'partners')}}
     }
@@ -1039,11 +1131,18 @@ function load(){
   var ids=all().filter(function(b){return !b.core}).map(function(b){return b.id});
   s.order=s.order.filter(function(id){return ids.indexOf(id)>-1});
   ids.forEach(function(id){if(s.order.indexOf(id)<0)s.order.push(id)});
+  if(mig){var ci=s.order.indexOf('channels');if(ci>-1){s.order.splice(ci,1);s.order.splice(Math.min(4,s.order.length),0,'channels')}}
+  if(mig13){var ai=s.order.indexOf('abroad');if(ai>-1){s.order.splice(ai,1);s.order.splice(Math.min(4,s.order.length),0,'abroad')}}
   all().forEach(function(b){if(!s.acc[b.id])s.acc[b.id]={dir:true,agent:true}});
   /* параметры в адресе: только для проверки вёрстки */
   var q=new URLSearchParams(location.search);
   if(q.get('role')&&ROLES[q.get('role')])s.role=q.get('role');
   if(q.get('paid'))s.paid=q.get('paid')!=='0';
+  if(q.get('neu'))s.neu=q.get('neu')!=='0';
+  if(q.get('n13'))s.n13=q.get('n13')!=='0';
+  /* версия 13.10 включает в себя 12.10: без нового от 12.10 нового от 13.10 не бывает */
+  if(!s.neu)s.n13=false;
+  if(q.get('chdown'))s.chdown=q.get('chdown')==='1';
   if(q.get('panel'))s.panel=q.get('panel')==='1';
   if(q.get('skin'))s.skin=q.get('skin');
   /* сохранённое оформление, которого больше нет (тёмные убраны), заменяем на первое из списка */
@@ -1069,13 +1168,14 @@ function route(){
   var p=location.hash.replace(/^#\/?/,'').split('/');
   if(p[0]==='account')return {v:'account'};
   if(p[0]==='requests')return {v:'requests'};
+  if(p[0]==='new')return {v:'new'};
   if(p[0]==='profile')return {v:'profile',pid:p[1]&&agent(p[1])?p[1]:'me'};
   if(p[0]==='anketa'||p[0]==='course'||p[0]==='verify')return {v:p[0]};
   if(p[0]==='b'){var b=get(p[1]);
-    if(b&&S.off.indexOf(b.id)<0){
+    if(b&&S.off.indexOf(b.id)<0&&on(b)){
       if(b.page)return {v:'block',id:b.id,sub:decodeURIComponent(p[2]||'')};
       var n=parseInt(p[2],10);
-      if(!isNaN(n)&&b.sections[n]&&!lock(b.id)&&!secLock(b.sections[n]))return {v:'item',id:b.id,n:n};
+      if(!isNaN(n)&&b.sections[n]&&(S.neu||!b.sections[n].neu)&&!lock(b.id)&&!secLock(b.sections[n]))return {v:'item',id:b.id,n:n};
       return {v:'block',id:b.id};
     }}
   return {v:'home'};
@@ -1083,7 +1183,18 @@ function route(){
 function lock(id){if(!S.paid)return 'pay';if(!S.acc[id][S.role])return 'level';return ''}
 function secLock(s){return s.only==='dir'&&S.role!=='dir'}
 function levelLabel(id){var a=S.acc[id];return a.dir?'Уровень: директор агентства':a.agent?'Уровень: самостоятельный агент':'Закрыто для всех уровней'}
-function shown(){return S.order.filter(function(id){return S.off.indexOf(id)<0}).map(get).filter(Boolean)}
+function shown(){return S.order.filter(function(id){return S.off.indexOf(id)<0}).map(get).filter(function(b){return b&&on(b)})}
+/* 12.10: значок "новое" и счётчики для экрана сравнения */
+var NB='<span class="nwb">новое 12.10</span>';
+/* 13.10: второй слой нового. on - виден ли блок в выбранной версии; nb - значок с датой добавления */
+var NB13='<span class="nwb">новое 13.10</span>';
+function on(x){return (S.neu||!x.neu)&&(S.n13||!x.n13)}
+function nb(x){return x&&x.n13?NB13:NB}
+function verCur(){return S.neu?(S.n13?2:1):0}
+var VERS=[[0,'Было 06.10','neu:0'],[1,'12.10','ver3:1'],[2,'С новым 13.10','neu:1']];
+function verSeg(cls){return '<span class="seg'+(cls?' '+cls:'')+'">'+VERS.map(function(o){return '<button data-act="'+o[2]+'" aria-pressed="'+(verCur()===o[0])+'">'+o[1]+'</button>'}).join('')+'</span>'}
+/* сколько нового появилось внутри старого блока: новые разделы и разделы, в которые добавлены строки (nbody, nin) */
+function innerNew(b){if(!S.neu||b.neu)return 0;return b.sections.filter(function(s){return s.neu||s.nbody||s.nin}).length}
 
 function qr(cls){
   var N=13,c=[[0,0],[N-4,0],[0,N-4]],s=11,h='';
@@ -1100,7 +1211,8 @@ function qr(cls){
 /* ---------- разметка ---------- */
 function toolHTML(){
   function seg(name,opts,cur){return '<span class="seg">'+opts.map(function(o){return '<button data-act="'+name+':'+o[0]+'" aria-pressed="'+(String(cur)===String(o[0]))+'">'+o[1]+'</button>'}).join('')+'</span>'}
-  return '<span class="badge">Макет v2</span><span class="note">Города, люди и цифры: примеры. Бренд не выбран.</span><span class="sp"></span>'
+  return '<span class="badge">Макет v2 · 13.10</span><span class="note">Города, люди и цифры: примеры. Бренд не выбран.</span><span class="sp"></span>'
+   +'<span class="grp"><span class="lbl">Версия</span>'+verSeg('nv')+'</span>'
    +'<span class="grp"><span class="lbl">Кто смотрит</span>'+seg('role',[['dir','Директор агентства'],['agent','Самостоятельный агент']],S.role)+'</span>'
    +'<span class="grp"><span class="lbl">Участник</span>'+seg('lvl',[['new','Новичок'],['ver','Проверенный']],S.ver?'ver':'new')+'</span>'
    +'<span class="grp"><span class="lbl">Подписка</span>'+seg('paid',[[1,'Активна'],[0,'Не оплачена']],S.paid?1:0)+'</span>'
@@ -1108,12 +1220,13 @@ function toolHTML(){
    +'<button class="tbtn'+(S.panel?' on':'')+'" data-act="panel">'+ic('adjustments-horizontal')+'Конструктор</button>';
 }
 function railHTML(r){
-  function nav(href,icon,label,cls,cur,lk){return '<button class="nav '+cls+(cur?' cur':'')+'" data-go="'+href+'">'+ic(icon)+'<span>'+esc(label)+'</span>'+(lk?'<i class="ti ti-lock lk" aria-hidden="true"></i>':'')+'</button>'}
+  function nav(href,icon,label,cls,cur,lk,dot){return '<button class="nav '+cls+(cur?' cur':'')+'" data-go="'+href+'">'+ic(icon)+'<span>'+esc(label)+'</span>'+(dot?'<i class="nwdot" title="Внутри есть новое"></i>':'')+(lk?'<i class="ti ti-lock lk" aria-hidden="true"></i>':'')+'</button>'}
   var club=get('club');
   return '<div class="brand"><span class="mark"></span><span><b>Название платформы</b><small>бренд не выбран</small></span></div>'
    +nav('#/','home','Главная','',r.v==='home')
-   +nav('#/b/club',club.icon,club.title,'core',r.id==='club',!!lock('club'))
-   +shown().map(function(b){return nav('#/b/'+b.id,b.icon,b.title,'',r.id===b.id,!!lock(b.id)||(b.ver&&!S.ver))}).join('')
+   +nav('#/new','sparkles','Что изменилось',S.neu?'isnew':'',r.v==='new')
+   +nav('#/b/club',club.icon,club.title,'core',r.id==='club',!!lock('club'),innerNew(club))
+   +shown().map(function(b){return nav('#/b/'+b.id,b.icon,b.title,b.neu?'isnew':'',r.id===b.id,!!lock(b.id)||(b.ver&&!S.ver),innerNew(b))}).join('')
    +'<span class="grow"></span><hr>'
    +nav('#/profile','user-circle','Мой профиль','',r.v==='profile'||r.v==='anketa'||r.v==='course'||r.v==='verify')
    +'<button class="nav'+(r.v==='requests'?' cur':'')+'" data-go="#/requests">'+ic('inbox')+'<span>Мои запросы</span>'+(S.reqs.length?'<span class="cnt">'+S.reqs.length+'</span>':'')+'</button>'
@@ -1134,9 +1247,9 @@ function top(r){
    +'</span></div>';
 }
 function tile(b,extra){
-  var lk=lock(b.id),n=b.sections.length;
+  var lk=lock(b.id),n=b.sections.filter(function(s){return S.neu||!s.neu}).length,nn=innerNew(b);
   var meta=lk==='pay'?ic('lock')+'Нужна активная подписка':lk==='level'?ic('lock')+levelLabel(b.id):(b.ver&&!S.ver)?ic('shield-check')+'Проверенным агентам':b.page?b.meta:(n?n+' '+plural(n,'раздел','раздела','разделов'):'Пустой блок');
-  return '<button class="tile '+(lk?'locked':(extra||''))+'" data-go="#/b/'+b.id+'"><span class="ico">'+ic(lk?'lock':b.icon)+'</span><h3>'+esc(b.title)+'</h3><p>'+esc(b.sub)+'</p><span class="meta"><span>'+meta+'</span>'+ic('chevron-right')+'</span></button>';
+  return '<button class="tile '+(lk?'locked':(extra||''))+(b.neu?' isnew':'')+'" data-go="#/b/'+b.id+'"><span class="ico">'+ic(lk?'lock':b.icon)+'</span><h3>'+esc(b.title)+(b.neu?' '+nb(b):'')+(nn?' <span class="nwb">внутри новое: '+nn+'</span>':'')+'</h3><p>'+esc(b.sub)+'</p><span class="meta"><span>'+meta+'</span>'+ic('chevron-right')+'</span></button>';
 }
 function coreTile(){
   var b=get('club'),lk=lock('club');
@@ -1145,7 +1258,7 @@ function coreTile(){
     :lk==='level'
     ?'<p>'+levelLabel('club')+'.</p><span class="cta">Подробнее'+ic('arrow-right')+'</span>'
     :'<p>'+esc(b.sub)+'</p><div class="stats"><span><b>128</b><small>участников</small></span><span><b>14</b><small>заявок</small></span><span><b>3</b><small>сделки</small></span><span class="eg">пример</span></div><span class="cta">Открыть клуб'+ic('arrow-right')+'</span>';
-  return '<button class="tile core'+(lk?' locked':'')+'" data-go="#/b/club"><span class="head"><span class="pill">'+ic(lk?'lock':'qrcode')+'Главный инструмент</span></span><h2>'+esc(b.title)+'</h2>'+body+qr()+'</button>';
+  return '<button class="tile core'+(lk?' locked':'')+'" data-go="#/b/club"><span class="head"><span class="pill">'+ic(lk?'lock':'qrcode')+'Главный инструмент</span>'+(innerNew(b)?' <span class="nwb">внутри новое: '+innerNew(b)+'</span>':'')+'</span><h2>'+esc(b.title)+'</h2>'+body+qr()+'</button>';
 }
 function payNotice(isClub){
   return '<div class="notice">'+ic('lock')+'<div><b>Подписка не оплачена</b><p>'+(isClub?'Бот не принимает новые заявки. Участники, коды и закрепления сохранены: после оплаты всё продолжится с того же места.':'Инструменты и материалы остановлены. Сеть клуба друзей сохранена: после оплаты всё продолжится с того же места.')+'</p></div><button class="btn" data-act="renew">Продлить подписку</button></div>';
@@ -1159,7 +1272,7 @@ function askHTML(){
    +'<div class="ask-bar">'+ic('search')+'<input id="ask" autocomplete="off" placeholder="Опишите задачу своими словами или надиктуйте" value="'+esc(QTXT)+'">'
    +'<button class="mic" data-act="mic" aria-label="Надиктовать задачу голосом">'+ic('microphone')+'</button>'
    +'<button class="btn" data-act="ask"><span>Найти решение</span>'+ic('arrow-right')+'</button></div>'
-   +'<div class="ask-eg"><span>Например:</span>'+EXAMPLES.map(function(e,i){return '<button class="egc" data-act="eg:'+i+'">'+e+'</button>'}).join('')+'</div>';
+   +'<div class="ask-eg"><span>Например:</span>'+EXAMPLES.map(function(e,i){return (i>=EG13&&!S.n13)?'':'<button class="egc'+(i>=EG13?' isnew':'')+'" data-act="eg:'+i+'">'+e+'</button>'}).join('')+'</div>';
   if(ASK){
     if(ASK.staff>-1&&!ASK.sent){
       var sf=STAFF[ASK.staff];
@@ -1190,16 +1303,30 @@ function home(){
   var wk=[['live','calendar-event','Ближайший эфир','Дата, тема и гость'],['know','file-text','Материал недели','Новый урок или чек-лист'],['market','news','Сводка рынка','Что изменилось за неделю']]
     .filter(function(w){return S.off.indexOf(w[0])<0})
     .map(function(w){return '<button class="wk" data-go="#/b/'+w[0]+'">'+ic(w[1])+'<span><b>'+w[2]+'</b><small>'+w[3]+'</small></span></button>'}).join('');
-  return lead+(S.paid?'':payNotice(false))+routeHTML()+netHTML()+askHTML()
+  return newsHTML()+lead+(S.neu?whyHTML():'')+(S.paid?'':payNotice(false))+routeHTML()+netHTML()+(S.neu?painsHTML():'')+askHTML()
    +'<div class="hub n'+n+'">'+col(L,'live')+coreTile()+col(R,'live')+'</div>'
    +(rest.length?'<div class="rest">'+rest.map(function(b){return tile(b,'')}).join('')+'</div>':'')
-   +(wk?'<section class="week"><h2>Новое на этой неделе</h2><div class="week-list">'+wk+'</div></section>':'');
+   +(wk?'<section class="week"><h2>Новое на этой неделе</h2>'+(S.neu?'<p class="sub nwp">Материалы платформы: 12 вышло · 3 скоро · 9 в работе '+EG+' '+NB+'</p>':'')+'<div class="week-list">'+wk+'</div></section>':'');
+}
+/* ===== 12.10: полоса обновления, "почему сейчас", входы "что болит" ===== */
+var PAINS=[['Площадка остановилась, заявок нет','#/b/channels'],['Реклама не окупается','#/b/club'],['Знакомые перестали советовать','#/b/partners'],['Клиент уезжает в другой город','#/b/deals/new'],['Нужна реклама в Max','#/b/channels/max'],['Не успеваю за нейросетями','#/b/tools'],['Боюсь потерять базу','#/b/channels/base'],['Клиент хочет купить за рубежом','#/b/abroad/send',1]];
+function newsHTML(){
+  if(S.neu&&S.n13)return '<div class="newbar">'+ic('sparkles')+'<div class="t"><b>Обновление 13.10: блок «Зарубежная недвижимость»</b>С 06.10 добавлено функций: '+NEWS.length+'. Новое залито фиолетовым; значки '+NB+' и '+NB13+' показывают дату.</div><button class="btn" data-go="#/b/abroad">Открыть блок'+ic('arrow-right')+'</button><button class="btn ghost" data-go="#/new">Что изменилось</button><button class="btn ghost" data-act="ver3:1">Как было 12.10</button></div>';
+  if(S.neu)return '<div class="newbar">'+ic('history')+'<div class="t"><b>Вы смотрите макет, каким он был 12.10</b>Новое от 13.10 скрыто: блок «Зарубежная недвижимость».</div><button class="btn" data-act="neu:1">Вернуть новое 13.10</button><button class="btn ghost" data-go="#/new">Что изменилось</button></div>';
+  return '<div class="newbar">'+ic('history')+'<div class="t"><b>Вы смотрите макет, каким он был 06.10</b>Новые функции от 12.10 и 13.10 скрыты.</div><button class="btn" data-act="neu:1">Вернуть новое</button><button class="btn ghost" data-go="#/new">Что изменилось</button></div>';
+}
+function whyHTML(){
+  return '<section class="why"><h2>Почему сейчас '+NB+'</h2><p>8–12 октября 2026 года площадки объявлений и реклама в поиске работали со сбоями. У кого все клиенты шли из одного места, заявки остановились. Платформа даёт каналы клиентов, которые принадлежат вам: рекомендации, партнёры, коллеги из других городов, свои точки в городе.</p></section>';
+}
+function painsHTML(){
+  return '<div class="pains"><span>Что болит сегодня? '+NB+'</span>'+PAINS.map(function(p){return (p[2]&&!S.n13)?'':'<button class="pain" data-go="'+p[1]+'">'+p[0]+(p[2]?' '+NB13:'')+'</button>'}).join('')+'</div>';
 }
 function secCard(b,s,i,blockLock){
   var lk=blockLock||secLock(s);
   var why=blockLock==='pay'?'Нужна активная подписка':blockLock==='level'?levelLabel(b.id):'Уровень: директор агентства';
-  return '<button class="sec'+(i===0?' wide':'')+(lk?' locked':'')+'" '+(lk?'data-act="locked" data-msg="'+esc(why)+'"':'data-go="#/b/'+b.id+'/'+i+'"')+'>'
-   +'<span class="tags"><span class="tag">'+esc(s.k)+'</span>'+(s.only?'<span class="tag a">Директор</span>':'')+(s.tag?'<span class="tag dash">'+esc(s.tag)+'</span>':'')+'</span>'
+  var nw=s.neu||((s.nbody||s.nin)&&S.neu);
+  return '<button class="sec'+(i===0?' wide':'')+(lk?' locked':'')+(nw?' isnew':'')+'" '+(lk?'data-act="locked" data-msg="'+esc(why)+'"':'data-go="#/b/'+b.id+'/'+i+'"')+'>'
+   +'<span class="tags"><span class="tag">'+esc(s.k)+'</span>'+(s.only?'<span class="tag a">Директор</span>':'')+(s.tag?'<span class="tag dash">'+esc(s.tag)+'</span>':'')+(nw?(s.neu?NB:'<span class="nwb">дополнено 12.10</span>'):'')+'</span>'
    +'<h3>'+esc(s.t)+'</h3><p>'+esc(s.d)+'</p><span class="meta"><span>'+(lk?why:'Открыть')+'</span>'+ic(lk?'lock':'chevron-right')+'</span></button>';
 }
 function phone(){
@@ -1216,13 +1343,13 @@ function phone(){
 }
 function block(b,sub){
   var lk=lock(b.id),a=S.acc[b.id],foot=staffLine(b);
-  var head='<div class="bhead"><span class="big">'+ic(b.icon)+'</span><div><h1>'+esc(b.title)+'</h1><p>'+esc(b.sub)+'</p><div class="tags">'
+  var head='<div class="bhead"><span class="big">'+ic(b.icon)+'</span><div><h1>'+esc(b.title)+(b.neu?' '+nb(b):'')+'</h1><p>'+esc(b.sub)+'</p><div class="tags">'
    +(a.dir?'<span class="tag a">'+ic('crown')+'Директор агентства</span>':'')+(a.agent?'<span class="tag a">'+ic('user')+'Самостоятельный агент</span>':'')
    +(b.core?'<span class="tag">Работает, пока активна подписка</span>':'')+'</div></div></div>';
   var note=lk==='pay'?payNotice(b.core):lk==='level'?'<div class="notice">'+ic('lock')+'<div><b>Блок закрыт для вашего уровня</b><p>'+levelLabel(b.id)+'. Переключите «Кто смотрит» в настройках макета.</p></div></div>':'';
-  if(b.page)return head+note+(lk?'':PAGES[b.page](sub||''))+foot;
+  if(b.page)return head+note+(lk?'':(b.neu?'<div class="allnew">':'')+PAGES[b.page](sub||'')+(b.neu?'</div>':''))+foot;
   var secs=b.sections.length
-    ?'<div class="secs">'+b.sections.map(function(s,i){return secCard(b,s,i,lk)}).join('')+'</div>'
+    ?'<div class="secs">'+b.sections.map(function(s,i){return (s.neu&&!S.neu)?'':secCard(b,s,i,lk)}).join('')+'</div>'
     :'<div class="empty">'+ic('box')+'<b>В этом блоке пока пусто</b><p>Решите, что сюда положить: разделы появятся здесь.</p></div>';
   return head+note+(b.core?'<div class="split">'+secs+phone()+'</div>':secs)+foot;
 }
@@ -1233,19 +1360,19 @@ function item(b,n){
   else if(s.k==='Сводка')ph='<div class="metrics">'+['Показатель один','Показатель два','Показатель три'].map(function(t,i){return '<div class="metric"><b>'+[128,14,3][i]+'</b><small>'+t+'</small> <span class="eg">пример</span></div>'}).join('')+'</div>';
   else if(s.k==='Инструмент')ph='<div class="ph"><span>'+ic('device-mobile')+'Экран инструмента<br><span class="tag">Работает, пока активна подписка</span></span></div>';
   else ph='<div class="rows">'+[0,1,2,3].map(function(){return '<div class="rowsk">'+ic('file-text')+'<span class="sk"></span><span class="sk s"></span></div>'}).join('')+'</div>';
-  var will=s.body?'<div class="will"><h2>Что здесь будет</h2><ul>'+s.body.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>':'';
+  var will=s.body?'<div class="will"><h2>Что здесь будет</h2><ul>'+s.body.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+(s.nbody&&S.neu?s.nbody.map(function(x){return '<li class="isnew">'+esc(x)+' '+NB+'</li>'}).join(''):'')+'</ul></div>':'';
   /* связь с другим разделом: одна строка и кнопка перехода */
   var link=s.link&&S.off.indexOf('partners')<0?'<div class="notice" style="margin:0">'+ic('heart-handshake')+'<div><b>'+s.link[1]+'</b><p>'+s.link[2]+'</p></div><button class="btn" data-go="'+s.link[0]+'">'+s.link[3]+ic('arrow-right')+'</button></div>':'';
-  return '<article class="item"><header><span class="tags"><span class="tag">'+esc(s.k)+'</span>'+(s.only?'<span class="tag a">Директор</span>':'')+(s.tag?'<span class="tag dash">'+esc(s.tag)+'</span>':'')+'<span class="tag dash">заглушка</span></span><h1>'+esc(s.t)+'</h1><p class="d">'+esc(s.d)+'</p></header>'+link+ph+will+'</article>';
+  return '<article class="item"><header><span class="tags"><span class="tag">'+esc(s.k)+'</span>'+(s.only?'<span class="tag a">Директор</span>':'')+(s.tag?'<span class="tag dash">'+esc(s.tag)+'</span>':'')+'<span class="tag dash">заглушка</span>'+(s.neu?NB:'')+'</span><h1>'+esc(s.t)+'</h1><p class="d">'+esc(s.d)+'</p></header>'+link+ph+will+'</article>';
 }
 function account(){
-  var open=['club'].concat(S.order).map(get).filter(function(b){return b&&S.off.indexOf(b.id)<0&&S.acc[b.id][S.role]});
+  var open=['club'].concat(S.order).map(get).filter(function(b){return b&&on(b)&&S.off.indexOf(b.id)<0&&S.acc[b.id][S.role]});
   return '<div class="bhead"><span class="big">'+ic('credit-card')+'</span><div><h1>Подписка и доступ</h1><p>Уровень, оплата и что открыто.</p></div></div>'
    +(S.paid?'':payNotice(false))
    +'<div class="cards">'
    +'<div class="card"><h2>Ваш уровень</h2><div class="tags"><span class="tag a">'+ic(S.role==='dir'?'crown':'user')+esc(ROLES[S.role])+'</span></div><ul>'+open.map(function(b){return '<li>'+esc(b.title)+'</li>'}).join('')+'</ul></div>'
    +'<div class="card"><h2>Оплата</h2>'+(S.role==='agent'?'<div class="price">7 000 ₽</div><div class="tags"><span class="tag">в месяц</span><span class="tag dash">ориентир</span></div>':'<div class="price">Цена</div><div class="tags"><span class="tag dash">для агентства не решена</span></div>')+'<p>'+(S.paid?'Подписка активна. Следующее списание: дата.':'Подписка не оплачена.')+'</p>'+(S.paid?'':'<button class="btn" data-act="renew">Продлить подписку</button>')+'</div>'
-   +'<div class="card"><h2>Если не продлить</h2><ul><li>Боты, цифровые сотрудники и инструменты останавливаются</li><li>Материалы и эфиры закрываются</li><li>Сеть клуба друзей сохраняется</li><li>После оплаты всё продолжается с того же места</li></ul></div>'
+   +'<div class="card"><h2>Если не продлить</h2><ul><li>Боты, цифровые сотрудники и инструменты останавливаются</li><li>Материалы и эфиры закрываются</li><li>Сеть клуба друзей сохраняется</li><li>После оплаты всё продолжается с того же места</li>'+(S.neu?'<li class="isnew">Свою базу можно скачать '+NB+' <span class="tag dash">не решено</span></li>':'')+'</ul></div>'
    +'</div>'
    +h2('Как платит агентство')+'<div class="vrs">'+vr('who')+(S.who==='agency'?vr('disc'):'')+'</div>'+agPrice();
 }
@@ -1265,14 +1392,14 @@ function panelHTML(){
      +'<span class="ops"><button class="mini" data-act="up:'+b.id+'" aria-label="Выше" '+(i===0?'style="visibility:hidden"':'')+'>'+ic('arrow-up')+'</button><button class="mini" data-act="down:'+b.id+'" aria-label="Ниже" '+(i===len-1?'style="visibility:hidden"':'')+'>'+ic('arrow-down')+'</button>'
      +(b.custom?'<button class="mini" data-act="del:'+b.id+'" aria-label="Удалить блок">'+ic('trash')+'</button>':'<button class="mini" data-act="toggle:'+b.id+'" aria-label="'+(off?'Показать блок':'Скрыть блок')+'">'+ic(off?'eye-off':'eye')+'</button>')+'</span></div>';
   }
-  var list=S.order.map(get).filter(Boolean),club=get('club'),ca=S.acc.club;
+  var list=S.order.map(get).filter(function(b){return b&&on(b)}),club=get('club'),ca=S.acc.club;
   return '<div class="ph-top"><h3>Конструктор</h3><button class="mini" data-act="panel" aria-label="Закрыть конструктор">'+ic('x')+'</button></div>'
    +'<p class="hint">Меняйте и сразу смотрите результат. Всё сохраняется в этом браузере.</p>'
-   +'<div class="only-m"><h4>Кто смотрит</h4><span class="seg">'+[['dir','Директор агентства'],['agent','Самостоятельный агент']].map(function(o){return '<button data-act="role:'+o[0]+'" aria-pressed="'+(S.role===o[0])+'">'+o[1]+'</button>'}).join('')+'</span>'
+   +'<div class="only-m"><h4>Версия</h4>'+verSeg('')+'<h4>Кто смотрит</h4><span class="seg">'+[['dir','Директор агентства'],['agent','Самостоятельный агент']].map(function(o){return '<button data-act="role:'+o[0]+'" aria-pressed="'+(S.role===o[0])+'">'+o[1]+'</button>'}).join('')+'</span>'
    +'<h4>Участник</h4><span class="seg">'+[['new','Новичок'],['ver','Проверенный']].map(function(o){return '<button data-act="lvl:'+o[0]+'" aria-pressed="'+((S.ver?'ver':'new')===o[0])+'">'+o[1]+'</button>'}).join('')+'</span>'
    +'<h4>Подписка</h4><span class="seg">'+[[1,'Активна'],[0,'Не оплачена']].map(function(o){return '<button data-act="paid:'+o[0]+'" aria-pressed="'+((S.paid?1:0)===o[0])+'">'+o[1]+'</button>'}).join('')+'</span></div>'
    +'<h4>Варианты «либо так, либо так»</h4><p class="hint" style="margin-top:0">Решения по ним нет. Каждый переключатель сразу меняет экраны и расчёты; те же варианты стоят прямо в разделах.</p>'
-   +VKEYS.map(function(k){return (k==='ppct'?'<h4>Варианты: база партнёров</h4><p class="hint" style="margin-top:0">Звёздочкой помечена рекомендация макета: она стоит по умолчанию. Решения по этим пунктам нет.</p>':'')+'<div class="pv"><span>'+V[k].l+'</span><div class="optset">'+V[k].o.map(function(o){return '<button class="opt" data-act="var:'+k+':'+o[0]+'" aria-pressed="'+(String(S[k])===String(o[0]))+'">'+o[1]+(V[k].r===o[0]?' ★':'')+'</button>'}).join('')+'</div></div>'}).join('')
+   +vkeys().map(function(k){return (k==='ppct'?'<h4>Варианты: база партнёров</h4><p class="hint" style="margin-top:0">Звёздочкой помечена рекомендация макета: она стоит по умолчанию. Решения по этим пунктам нет.</p>':k==='apart'?'<h4>Варианты: зарубежная недвижимость '+NB13+'</h4><p class="hint" style="margin-top:0">Решения по этим пунктам нет. Звёздочка — рекомендация макета.</p>':'')+'<div class="pv'+(V[k].n13?' isnew':'')+'"><span>'+V[k].l+'</span><div class="optset">'+V[k].o.map(function(o){return '<button class="opt" data-act="var:'+k+':'+o[0]+'" aria-pressed="'+(String(S[k])===String(o[0]))+'">'+o[1]+(V[k].r===o[0]?' ★':'')+'</button>'}).join('')+'</div></div>'}).join('')
    +'<div class="pv"><span>Доля за переданного клиента: <b data-share>'+S.share+'%</b></span>'+rng(20,35,1,S.share,'share','Доля за переданного клиента')+'</div>'
    +'<h4>Оформление</h4><div class="skins">'+SKINS.map(function(k){return '<button class="skin" data-act="skin:'+k[0]+'" aria-pressed="'+(S.skin===k[0])+'"><i class="dot" style="--a:'+k[3]+';--b:'+k[4]+'"></i>'+k[1]+'<small>'+k[2]+'</small></button>'}).join('')+'</div>'
    +'<h4>Миссия на главной</h4><span class="seg">'+[1,2,3,0].map(function(m){return '<button data-act="mission:'+m+'" aria-pressed="'+(S.mission===m)+'">'+(m?'Вариант '+m:'Без неё')+'</button>'}).join('')+'</span>'
@@ -1289,11 +1416,11 @@ function summary(){
   function accTxt(id){var a=S.acc[id],r=[];if(a.dir)r.push('директор');if(a.agent)r.push('агент');return r.length?r.join(', '):'никто'}
   var on=shown(),off=S.order.filter(function(id){return S.off.indexOf(id)>-1}).map(get);
   var modes=all().filter(function(b){return (S.mode[b.id]||'semi')!=='semi'}).map(function(b){return b.title+' — '+MODES.filter(function(o){return o[0]===S.mode[b.id]})[0][1]});
-  return ['Моя сборка каркаса (макет v2)','Оформление: '+skinName(),'Миссия на главной: '+m,'Центр: Клуб друзей | доступ: '+accTxt('club'),'Блоки по порядку:']
+  return ['Моя сборка каркаса (макет v2, обновление 13.10)','Версия на экране: '+['как было 06.10','как было 12.10','с новым 13.10'][verCur()],'Оформление: '+skinName(),'Миссия на главной: '+m,'Центр: Клуб друзей | доступ: '+accTxt('club'),'Блоки по порядку:']
    .concat(on.map(function(b,i){return (i+1)+'. '+b.title+(b.custom?' (свой блок)':'')+' | доступ: '+accTxt(b.id)}))
    .concat(['Выключены: '+(off.length?off.map(function(b){return b.title}).join(', '):'нет')])
    .concat(['Выбранные варианты:'])
-   .concat(VKEYS.map(function(k){var d=V[k],rec=d.r?d.o.filter(function(o){return o[0]===d.r})[0][1]:'';return '- '+d.l+': '+vname(k)+(d.r?(String(S[k])===d.r?' (рекомендация макета)':' (изменено; рекомендация макета: '+rec+')'):'')}))
+   .concat(vkeys().map(function(k){var d=V[k],rec=d.r?d.o.filter(function(o){return o[0]===d.r})[0][1]:'';return '- '+d.l+': '+vname(k)+(d.r?(String(S[k])===d.r?' (рекомендация макета)':' (изменено; рекомендация макета: '+rec+')'):'')}))
    .concat(['- Доля за переданного клиента: '+S.share+'%','- Калькулятор: подписка '+S.calc.p+' руб., первый круг '+S.calc.l1+'%, второй круг '+S.calc.l2+'%','- Режим цифровых сотрудников: '+(modes.length?modes.join('; ')+'; остальные — полуавтомат':'везде полуавтомат')])
    .concat(S.notes.length?['Замечания:'].concat(S.notes.map(function(n){return '- ['+n.w+'] '+n.t})):[])
    .concat(S.reqs.length?['Запросы, которые я пробовал в строке:'].concat(S.reqs.map(function(r){return '- '+r.type+': '+r.q})):[]).join('\n');
@@ -1320,6 +1447,8 @@ function vr(k,label){
 /* пометка варианта, который макет рекомендует (решения по нему нет) */
 var REC='<span class="rc">★ рекомендация</span>';
 function vname(k){var f=V[k].o.filter(function(o){return String(o[0])===String(S[k])})[0];return f?f[1]:''}
+/* варианты, видимые в выбранной версии макета */
+function vkeys(){return VKEYS.filter(function(k){return S.n13||!V[k].n13})}
 function staffLine(b){
   var m=S.mode[b.id]||'semi';
   return '<div class="vr foot"><span class="vl">'+ic('robot')+' За раздел отвечает цифровой сотрудник «'+(RESP[b.id]||'Дежурный по запросам')+'». Режим:</span>'
@@ -1640,11 +1769,12 @@ function pubDeal(){
 }
 
 /* ================= v2: цифровые сотрудники ================= */
-function staffCard(s){return '<div class="card"><h2>'+ic(s[0])+s[1]+'</h2><span class="lbl">Делает сам</span><span class="txt">'+s[2]+'</span><span class="lbl">Приносит вам на утверждение</span><span class="txt">'+s[3]+'</span><div class="tags" style="margin-top:6px"><span class="tag">Работает, пока активна подписка</span>'+IDEA+'</div></div>'}
+function staffCard(s,task){return '<div class="card'+(s[4]?' isnew':'')+'"><h2>'+ic(s[0])+s[1]+(s[4]?' '+NB:'')+'</h2>'+(S.neu&&task?(s[4]?'<span class="lbl">Какую задачу сделки закрывает</span><span class="txt">'+task+'</span>':'<div class="nwline"><span class="lbl">Какую задачу сделки закрывает '+NB+'</span><span class="txt">'+task+'</span></div>'):'')+'<span class="lbl">Делает сам</span><span class="txt">'+s[2]+'</span><span class="lbl">Приносит вам на утверждение</span><span class="txt">'+s[3]+'</span><div class="tags" style="margin-top:6px"><span class="tag">Работает, пока активна подписка</span>'+IDEA+'</div></div>'}
 function staffView(){
   return headHTML('robot','Цифровые сотрудники','Помощники, которые делают рутину за вас. Вы — директор: ставите задачу словами и проверяете результат.')
    +doBox('Поставьте задачу словами: сотрудник подготовит, вы утвердите','Сообщения клиентам уходят только после вашего утверждения.','<button class="btn big" data-go="#/" data-focus="ask">'+ic('message-plus')+'Поставить задачу</button>')
-   +'<div class="cards">'+STAFF.map(staffCard).join('')+'</div>'
+   +(S.neu?'<div class="newbar">'+ic('message-question')+'<div class="t"><b>Сотрудник сначала расспрашивает, потом делает '+NB+'</b>Он задаёт вопросы про объект и клиента и помнит ответы. Это не нейросеть в окошке бота, а исполнитель одной понятной задачи в сделке.</div></div>':'')
+   +'<div class="cards">'+STAFF.filter(function(s){return S.neu||!s[4]}).map(function(s,i){return staffCard(s,STASK[i])}).join('')+'</div>'
    +h2('Кто отвечает за разделы платформы',IDEA)+'<p class="sub">У каждого раздела — свой цифровой сотрудник. На старте везде полуавтомат: сотрудник готовит, человек утверждает.</p>'
    +'<div>'+[get('club')].concat(shown()).map(function(b){var m=S.mode[b.id]||'semi';return '<div class="resp"><b>'+esc(b.title)+'</b><span>'+(RESP[b.id]||'Дежурный по запросам')+'</span><span class="vr">'+MODES.map(function(o,i){return (i?'<span class="sl">/</span>':'')+'<button data-act="mode:'+b.id+':'+o[0]+'" aria-pressed="'+(m===o[0])+'">'+o[1]+'</button>'}).join('')+'</span></div>'}).join('')+'</div>';
 }
@@ -1653,7 +1783,7 @@ function deptView(){
   return headHTML('building','Цифровой отдел агентства','Сотрудники, которые работают на агентство. Директор утверждает и проверяет.')
    +doBox(left?'Сотрудники подготовили '+left+' '+plural(left,'задачу','задачи','задач')+'. Утвердите или поправьте':'На сегодня всё разобрано','Пока вы не утвердили, клиентам и агентам ничего не уходит.',left?'<button class="btn big" data-act="feedall">'+ic('checks')+'Утвердить всё</button>':'')
    +h2('Что сотрудники сделали сегодня',EG)+'<div class="feed">'+FEED.map(function(f){var s=S.feed[f[0]];return '<div class="fd'+(s?' '+s:'')+'"><div class="h"><span>'+f[1]+'</span><b>'+f[2]+'</b>'+(s==='ok'?'<span class="tag a">'+ic('check')+'Утверждено</span>':s==='fix'?'<span class="tag">Возвращено на доработку</span>':'<span class="tag dash">ждёт вас</span>')+'</div><p>'+f[3]+'</p>'+(s?'':'<div class="pact" style="margin-top:0"><button class="btn" data-act="feed:'+f[0]+':ok">Утвердить</button><button class="btn ghost" data-act="feed:'+f[0]+':fix">Поправить</button></div>')+'</div>'}).join('')+'</div>'
-   +h2('Сотрудники отдела',IDEA)+'<div class="cards">'+DEPT.map(staffCard).join('')+'</div>';
+   +h2('Сотрудники отдела',IDEA)+'<div class="cards">'+DEPT.map(function(s,i){return staffCard(s,DTASK[i])}).join('')+'</div>';
 }
 
 /* ================= v2: база партнёров - свои специалисты, передачи клиентов, счёт рекомендаций ================= */
@@ -1983,7 +2113,207 @@ function partnersPage(sub){
   var f={send:partnersSend,list:partnersList,score:partnersScore,view:partnersView,cat:partnersCat,agency:partnersAgency}[cur]||partnersMy;
   return tabsHTML('#/b/partners',tabs,cur)+f();
 }
-var PAGES={cities:citiesPage,deals:dealsPage,invite:invitePage,partners:partnersPage},VIEWS={staff:staffView,dept:deptView};
+/* ================= 12.10: мои каналы клиентов и экран "что изменилось" ================= */
+/* Доли каналов - пример. Третий элемент - канал, который останавливается при сбое площадок и рекламы в поиске. */
+var CH0=[['Площадки объявлений',70,1],['Знакомые и рекомендации',15],['Реклама в поиске',10,1],['Соцсети',5]];
+var CH1=[['Площадки объявлений',30,1],['Клуб друзей',20],['База партнёров',12],['Max и ВКонтакте',10],['Рынок сделок',8],['Точки и офлайн',8],['Радар',6],['Ответы нейросетей',6]];
+function chCol(title,list,note){
+  var left=0,max=0;
+  var rows=list.map(function(c){var down=S.chdown&&c[2];if(!down)left+=c[1];if(c[1]>max)max=c[1];return '<div class="chrow'+(down?' down':'')+'"><span>'+c[0]+'</span><span class="chbar" style="--w:'+c[1]+'%"><i></i></span><b>'+(down?0:c[1])+'</b></div>'}).join('');
+  return '<div class="card"><h2>'+title+' '+EG+'</h2><div>'+rows+'</div>'
+   +(S.chdown?'<div class="chsum'+(left<60?' bad':'')+'"><b>'+left+' из 100</b><span>обращений остаётся</span></div>':'<div class="chsum'+(max>50?' bad':'')+'"><b>'+max+'%</b><span>даёт самый крупный канал</span></div>')
+   +'<p>'+note+'</p></div>';
+}
+function chLink(t,d,go){return '<button class="sec" data-go="'+go+'"><h3>'+t+'</h3><p>'+d+'</p><span class="meta"><span>Открыть</span>'+ic('chevron-right')+'</span></button>'}
+function chMain(){
+  return doBox(S.chdown?'Площадки и реклама в поиске остановлены: смотрите, что осталось':'Проверьте, что будет, если площадка остановится на неделю','Так было 8–12 октября 2026 года: объявления и реклама в поиске работали со сбоями.',S.chdown?'<button class="btn big" data-act="chdown:0">'+ic('plug')+'Вернуть как было</button>':'<button class="btn big" data-act="chdown:1">'+ic('plug-off')+'Остановить площадки</button>',S.chdown?'w':'')
+   +'<div class="chcols">'+chCol('Как у многих сегодня',CH0,'Почти все обращения приходят из одного места.')+chCol('С платформой',CH1,'Восемь каналов. Шесть из них принадлежат вам и от площадок не зависят.')+'</div>'
+   +'<p class="sub">Доли — пример. Свои цифры появятся из клуба друзей, передач партнёрам и рынка сделок; долю площадок агент вносит сам: инструментов для площадок объявлений в платформе нет.</p>'
+   +h2('Каналы по одному')+'<div class="secs">'
+   +chLink('Клуб друзей','Рекомендации и личные коды.','#/b/club')+chLink('База партнёров','Клиенты от специалистов, которым вы передаёте своих.','#/b/partners')+chLink('Рынок сделок','Клиенты от коллег из других городов.','#/b/deals')+chLink('Точки в городе','Таблички с кодом в кофейнях и салонах.','#/b/cities')
+   +chLink('Реклама в Max','Три способа и каналы города с ценами.','#/b/channels/max')+chLink('Ответы нейросетей','Чтобы нейросети советовали вас.','#/b/channels/geo')+chLink('Офлайн','Листовка и листок на доску с кодом клуба.','#/b/channels/off')+chLink('Радар ВКонтакте','Ловит обращения людей в группах.','#/b/tools/5')
+   +'</div>';
+}
+function chWay(icon,t,rows,tag){return '<div class="card"><h2>'+ic(icon)+t+'</h2>'+rows.map(function(r){return '<span class="lbl">'+r[0]+'</span><span class="txt">'+r[1]+'</span>'}).join('')+(tag?'<div class="tags" style="margin-top:6px"><span class="tag dash">'+tag+'</span></div>':'')+'</div>'}
+function chMax(){
+  return doBox('Три способа показать себя в каналах Max','С 5 октября 2026 года объявление в каналах Max запускается из кабинета VK Рекламы. До этого были только Яндекс Директ и покупка постов.','<button class="btn big" data-go="#/b/tools/0">'+ic('robot')+'Кто подберёт каналы</button>')
+   +'<div class="cards">'
+   +chWay('target-arrow','Объявление по людям',[['Где запускается','Кабинет VK Рекламы, с 05.10.2026, тестовый режим'],['Как выбирается показ','По людям: город, пол, возраст, интересы. Каналы подбирает система — площадки от 1&nbsp;000 подписчиков'],['Куда ведёт','На канал, пост или сайт']],'цена показа не опубликована')
+   +chWay('ad','Объявление через Яндекс Директ',[['Где запускается','Директ, показы в каналах Max с мая 2026 года'],['Как выбирается показ','С 8 июня 2026 года каналы можно выбрать из каталога самому'],['Сколько висит','Пост держится 48 часов']],'оплата за клики или просмотры')
+   +chWay('news','Пост в выбранном канале',[['Где покупается','На бирже или напрямую у владельца канала'],['Как выбирается','Вручную: по цене одного просмотра и по тому, читают ли канал'],['Маркировка','Биржа ставит её сама; при покупке напрямую — ставит рекламодатель']],'цены каналов — ниже')
+   +'</div>'
+   +h2('Каналы города с ценами','<span class="tag a">настоящий срез, не пример</span>')
+   +'<div class="metrics">'
+   +'<div class="metric"><b>336</b><small>каналов Max на бирже: Санкт-Петербург и область, 12.10.2026</small></div>'
+   +'<div class="metric"><b>1 399 ₽</b><small>пост на сутки, медиана</small></div>'
+   +'<div class="metric"><b>2,24 ₽</b><small>один просмотр, медиана</small></div>'
+   +'<div class="metric"><b>60</b><small>каналов брать нет смысла: просмотр дороже 8 ₽ или просмотров нет</small></div>'
+   +'</div>'
+   +'<p class="sub" style="margin-top:12px">Такой срез для города участника собирает цифровой сотрудник «Подборщик рекламных каналов». Опубликованные результаты есть только у застройщиков: заявка 1 863–3 195 ₽ (два отчёта рекламного агентства, 2026 год). У агентств недвижимости опубликованных примеров не найдено.</p>';
+}
+function chGeo(){
+  function c(icon,t,d){return '<div class="card"><h2>'+ic(icon)+t+'</h2><p>'+d+'</p><div class="tags">'+IDEA+'</div></div>'}
+  return doBox('Клиент спрашивает нейросеть — она называет вас или другого','Поиск жилья и агента всё чаще начинается с вопроса к нейросети, а не с площадки.','')
+   +'<div class="cards">'+c('world','Понятная страница агента','Кто вы, где работаете, с чем помогаете. Платформа собирает её из анкеты.')+c('star','Отзывы','Отзывы клиентов и коллег из профиля открыты для нейросетей.')+c('file-text','Экспертные тексты','Развёрнутые ответы на вопросы клиентов под вашим именем: субсидии, ипотека, сложные сделки.')+'</div>'
+   +h2('Проверка раз в неделю',IDEA+' '+EG)
+   +'<div class="metrics"><div class="metric"><b>15</b><small>вопросов задаём нейросетям</small></div><div class="metric"><b>2</b><small>раза назвали вас</small></div><div class="metric"><b>6</b><small>раз назвали других агентов</small></div></div>'
+   +'<p class="sub" style="margin-top:12px">Вопросы — те, что задают клиенты: «как использовать материнский капитал при покупке», «как купить квартиру в другом городе».</p>';
+}
+function chOff(){
+  function c(t,d,nw){return '<div class="card'+(nw?' isnew':'')+'"><h2>'+t+(nw?' '+NB:'')+'</h2>'+qr('inl')+'<p>'+d+'</p><div><button class="btn ghost" data-act="print">'+ic('printer')+'Распечатать</button></div></div>'}
+  return doBox('Канал, который не зависит от интернета','Каждая табличка и листок ведут в клуб друзей по своему коду: видно, откуда пришёл человек.','<button class="btn big" data-go="#/b/cities">'+ic('map-pin')+'Точки в моём городе</button>')
+   +'<div class="cards">'+c('Табличка в точке','Кофейня, салон, магазин. Уже есть в разделе «Города и точки».',0)+c('Листовка в почтовый ящик','Дом или квартал, где вы работаете. Свой код на каждый дом.',1)+c('Листок на доску у подъезда','Один крупный код и две строки: чем вы полезны соседям.',1)+'</div>';
+}
+function chBase(){
+  return doBox('Ваша база принадлежит вам','Скачать её можно в любой момент одним файлом.','<button class="btn big" data-act="dlbase">'+ic('download')+'Скачать мою базу</button>')
+   +'<div class="cards">'
+   +'<div class="card"><h2>'+ic('table')+'Что в файле</h2><ul><li>Участники клуба и кто кого привёл</li><li>Партнёры и передачи клиентов</li><li>Заявки и их статусы</li><li>Личные коды</li></ul></div>'
+   +'<div class="card"><h2>'+ic('server')+'Где лежат копии</h2><ul><li>Основной сервер</li><li>Второй сервер в другом городе</li><li>Ваш файл — после каждого скачивания</li></ul><div class="tags">'+IDEA+'</div></div>'
+   +'<div class="card"><h2>'+ic('calendar')+'Последняя копия</h2><div class="price">12.10</div><div class="tags"><span class="tag">каждую неделю</span>'+EG+'</div><p>За копиями следит цифровой сотрудник «Хранитель базы».</p></div>'
+   +'</div>'
+   +'<div class="vrs"><div class="vr"><span class="vl">Скачивание при неоплаченной подписке:</span>открыто / закрыто'+UND+'</div></div>';
+}
+function channelsPage(sub){
+  var tabs=[['','Сводка','chart-pie'],['max','Реклама в Max','speakerphone'],['geo','Ответы нейросетей','message-chatbot'],['off','Офлайн и точки','map-pin'],['base','Моя база и копии','database']];
+  var cur=tabs.some(function(t){return t[0]===sub})?sub:'';
+  return tabsHTML('#/b/channels',tabs,cur)+({'':chMain,max:chMax,geo:chGeo,off:chOff,base:chBase}[cur])();
+}
+/* ================= 13.10: зарубежная недвижимость =================
+   Страны и статусы: партнёры есть во Вьетнаме и в ОАЭ (Дубай); Таиланд, Турция, Узбекистан (Ташкент) - партнёр подключается.
+   Кто партнёры, условия и вознаграждение не названы: на экранах стоит "вписать". Клиенты и передачи - примеры. */
+var AD='13.10';
+var AC=[['vn','Вьетнам','','on'],['ae','ОАЭ','Дубай','on'],['th','Таиланд','','talk'],['tr','Турция','','talk'],['uz','Узбекистан','Ташкент','talk']];
+var AST=['Ждёт клиента','Ждёт партнёра','Партнёр принял','Подбор и показ','Бронь','Сделка'];
+var ANX=['клиент нажал «Да, передать»','партнёр отметил «Принял»','партнёр отметил «Подбор и показ»','партнёр отметил «Бронь»','партнёр отметил «Сделка», клиент подтвердил'];
+var AT0=[
+ {id:'e3',c:'ae',cl:'Марина',what:'Студия под сдачу в аренду',st:1,d0:'11.10',d1:'11.10'},
+ {id:'e4',c:'vn',cl:'Олег',what:'Дом для переезда семьи',st:2,d0:'07.10',d1:'08.10'},
+ {id:'e1',c:'ae',cl:'Вероника',what:'Квартира в Дубае для сдачи в аренду',st:3,d0:'02.10',d1:'09.10'},
+ {id:'e2',c:'vn',cl:'Григорий',what:'Апартаменты у моря',st:5,d0:'14.08',d1:'30.09'}
+];
+var AS={cl:'c1',c:'',what:''},ALAST='';
+function acBy(id){return AC.filter(function(c){return c[0]===id})[0]}
+function acOpen(){return AC.filter(function(c){return c[3]==='on'})}
+function acSoon(){return S.asoon==='soon'?AC.filter(function(c){return c[3]!=='on'}):[]}
+function aWho(){return {dev:'застройщик',agency:'агентство недвижимости',broker:'частный брокер'}[S.apart]||'партнёр'}
+function allAT(){return S.atx.concat(AT0)}
+function aSendBtn(c){return '<button class="btn big" '+(c?'data-act="ato:'+c+'"':'data-go="#/b/abroad/send"')+'>'+ic('send')+'Передать клиента'+(c?'':' за рубеж')+'</button>'}
+function aCard(c){
+  var open=c[3]==='on';
+  return '<div class="card"><h2>'+ic('map-pin')+c[1]+'</h2><p>'+(c[2]||'Город — вписать')+'</p><div class="tags">'+(open?'<span class="tag a">'+ic('check')+'партнёр есть</span>':'<span class="tag dash">скоро</span>')+'</div>'
+   +'<div class="pact">'+(open?'<button class="btn" data-act="ato:'+c[0]+'">'+ic('send')+'Передать клиента</button><button class="btn ghost" data-go="#/b/abroad/'+c[0]+'">О стране</button>':'<button class="btn ghost" data-act="asoonme">'+ic('bell')+'Сообщить мне</button>')+'</div></div>';
+}
+function aSteps(){
+  var s=S.arole==='pass'?['Вы передали клиента','Клиент подтвердил','Партнёр в стране подбирает и показывает','Сделка: вознаграждение вам']:['Вы передали клиента','Партнёр открыл вам объекты','Вы ведёте клиента, партнёр оформляет','Сделка: вознаграждение вам'];
+  return '<div class="stp">'+s.map(function(x,i){return (i?ic('chevron-right'):'')+'<span class="on">'+x+'</span>'}).join('')+'</div>';
+}
+function abMain(){
+  var op=acOpen(),sn=acSoon();
+  return doBox('Клиент хочет купить за рубежом — передайте его партнёру в стране','Свой выход за рубеж не нужен: клиента принимает '+aWho()+' в стране. Запись «чей клиент» создаётся в момент передачи.',aSendBtn())
+   +'<div class="metrics"><div class="metric"><b>'+op.length+'</b><small>'+plural(op.length,'страна открыта','страны открыты','стран открыто')+'</small></div>'
+   +(sn.length?'<div class="metric"><b>'+sn.length+'</b><small>'+plural(sn.length,'страна','страны','стран')+' скоро</small></div>':'')
+   +'<div class="metric"><b>'+allAT().length+'</b><small>'+plural(allAT().length,'передача','передачи','передач')+' за рубеж '+EG+'</small></div></div>'
+   +h2('Страны')+'<div class="cards">'+op.concat(sn).map(aCard).join('')+'</div>'
+   +h2('Как проходит передача')+aSteps()
+   +'<div class="vrs" style="margin-top:14px">'+vr('arole')+vr('apart')+vr('asoon')+vr('apct')+'<div class="vr"><span class="vl">Вознаграждение агенту:</span>вписать по каждой стране'+UND+'</div></div>'
+   +h2('Рядом')+'<div class="secs">'+chLink('Рынок сделок','Клиент покупает в другом городе России.','#/b/deals/new')+chLink('База партнёров','Ипотека, ремонт и страхование в вашем городе.','#/b/partners')+chLink('Эфиры и сообщество','Встречи с партнёром страны: вопросы вживую.','#/b/live')+'</div>';
+}
+function abCountry(c){
+  if(c[3]!=='on')return doBox(c[1]+': скоро','Страна появится в одном из следующих обновлений. Карточку страны заполнит партнёр.','<button class="btn big" data-act="asoonme">'+ic('bell')+'Сообщить, когда откроется</button>')
+   +'<p class="sub"><button class="lnk" data-go="#/b/abroad">'+ic('arrow-left')+'Все страны</button></p>';
+  return doBox(c[1]+(c[2]?', '+c[2]:'')+': партнёр есть','Клиента принимает '+aWho()+' в стране. Каждый шаг виден в «Моих передачах».',aSendBtn(c[0]))
+   +'<div class="cards">'
+   +chWay('building-skyscraper','Что продают',[['Объекты','вписать'],['Порог входа','вписать'],['Города и районы',c[2]?c[2]+'; остальное — вписать':'вписать']],'заполняет партнёр')
+   +chWay('file-text','Покупка иностранцем',[['Что можно оформить в собственность','вписать'],['Как платит клиент','вписать'],['Срок сделки','вписать']],'заполняет партнёр')
+   +chWay('cash','Вознаграждение',[['Агенту за клиента','вписать'],['Когда выплачивается','вписать'],['Срок записи «чей клиент»','вписать']],'не решено')
+   +'</div>'
+   +'<div class="vrs" style="margin-top:14px">'+vr('apart')+vr('arole')+'</div>'
+   +'<p class="sub"><button class="lnk" data-go="#/b/abroad">'+ic('arrow-left')+'Все страны</button></p>';
+}
+function aSent(t){
+  var c=acBy(t.c)||AC[0],me=esc(meName());
+  return doBox('Запись создана в '+t.t0+'. Ждём, когда клиент нажмёт «Да, передать»','В записи — время, вы и партнёр в стране: по ней видно, чей клиент.','<button class="btn big" data-go="#/b/abroad/list">'+ic('list-check')+'Мои передачи</button>')
+   +'<div class="two"><div>'+h2('Что получит клиент',EG)+phoneBox('Клиент','сообщение бота','<div class="bub">'+me+' передаёт вас партнёру по недвижимости: '+c[1]+'. Передать ваш номер?</div>'+kb(['Да, передать','Не нужно'],2),'Клиент '+esc(t.cl)+' отвечает одной кнопкой.',true)+'</div>'
+   +'<div>'+h2('Что видит партнёр в стране',EG)+'<div class="msg"><span class="cap">'+c[1]+' · до ответа клиента</span><p class="q">К вам идёт заявка от агента '+me+': '+esc(t.what)+'. Номер клиента откроется, когда клиент подтвердит.</p></div>'
+   +'<div class="pact"><button class="btn ghost" data-act="amore">'+ic('plus')+'Передать ещё одного клиента</button></div></div></div>';
+}
+function abSend(){
+  var last=ALAST?allAT().filter(function(t){return t.id===ALAST})[0]:null;
+  if(last)return aSent(last);
+  return '<div class="form"><div class="lead" style="margin:0"><h1>Передать клиента за рубеж</h1></div><p class="sub" style="margin:0">Три поля. Запись «чей клиент» создаётся в момент нажатия; '+(S.arole==='pass'?'дальше клиента ведёт партнёр в стране.':'дальше партнёр открывает вам объекты, клиента ведёте вы.')+'</p>'
+   +'<label>Кого передаём<select data-f="as:cl">'+MYCL.map(function(c){return '<option value="'+c[0]+'"'+(AS.cl===c[0]?' selected':'')+'>'+c[1]+' — '+c[2]+'</option>'}).join('')+'</select></label>'
+   +'<label>В какую страну<select data-f="as:c">'+acOpen().map(function(c){return '<option value="'+c[0]+'"'+(AS.c===c[0]?' selected':'')+'>'+c[1]+(c[2]?', '+c[2]:'')+'</option>'}).join('')+'</select></label>'
+   +'<label>Одна строка: что ищет клиент<input data-f="as:what" value="'+esc(AS.what)+'" placeholder="Квартира для сдачи в аренду"></label>'
+   +'<div class="pact"><button class="btn big" data-act="asend">'+ic('send')+'Передать</button></div>'
+   +'<div class="vrs" style="margin:6px 0 0">'+vr('arole')+'</div>'
+   +'<p class="sub" style="margin:0">Клиент покупает в другом городе России? <button class="lnk" data-go="#/b/deals/new">Рынок сделок</button></p></div>';
+}
+function aSendClient(){
+  var c=MYCL.filter(function(x){return x[0]===AS.cl})[0]||MYCL[0];
+  var t={id:'a'+Date.now().toString(36),c:AS.c||acOpen()[0][0],cl:c[1],what:AS.what.trim()||'Квартира для сдачи в аренду',st:0,d0:AD,d1:AD,t0:nowHM(),my:true};
+  S.atx.unshift(t);ALAST=t.id;AS={cl:'c1',c:'',what:''};
+}
+function aTCard(t){
+  var c=acBy(t.c)||AC[0],done=t.st>=AST.length-1;
+  return '<div class="deal"><span class="tags"><span class="tag'+(done?' a':'')+'">'+(done?ic('check'):'')+AST[t.st]+'</span>'+(t.my?'<span class="tag">создана в макете</span>':EG)+'</span>'
+   +'<span class="rt">'+esc(t.cl)+ic('arrow-right')+c[1]+'</span><p>'+esc(t.what)+'</p>'
+   +'<span class="kv"><span>Передан: <b>'+t.d0+'</b></span><span>Последнее событие: <b>'+t.d1+'</b></span><span>Принимает: <b>'+aWho()+'</b></span></span>'
+   +(t.my&&!done?'<div class="pact"><button class="btn ghost" data-act="anext:'+t.id+'">'+ic('player-track-next')+'В макете: следующий шаг</button></div>':'')+'</div>';
+}
+function abList(){
+  var list=allAT(),last=AST.length-1,dn=list.filter(function(t){return t.st>=last}).length;
+  return doBox('Здесь видно, на каком шаге каждый клиент','Отметки ставит партнёр в стране; итог подтверждает клиент.',aSendBtn())
+   +'<div class="metrics">'+[[list.length,'всего передач'],[list.length-dn,'в работе'],[dn,'дошли до сделки']].map(function(x){return '<div class="metric"><b>'+x[0]+'</b><small>'+x[1]+'</small></div>'}).join('')+'</div>'
+   +'<div class="deals" style="margin-top:16px">'+list.map(aTCard).join('')+'</div>'
+   +'<p class="sub">Шаги: '+AST.join(' → ').toLowerCase()+'.</p>';
+}
+function abKit(){
+  function c(icon,t,d){return '<div class="card"><h2>'+ic(icon)+t+'</h2><p>'+d+'</p><div class="tags">'+IDEA+'</div></div>'}
+  return doBox('Что отдать клиенту и где подготовиться самому','Материалы по стране готовит партнёр; платформа ставит на них ваш код.','')
+   +h2('Для клиента')+'<div class="cards">'+c('photo','Подборка объектов','Ссылка с вашим кодом: клиент смотрит объекты, запись «чей клиент» сохраняется.')+c('presentation','Презентация страны','Что сказать клиенту на первой встрече: зачем покупать и чего ждать.')+c('file-text','Памятка покупателю','Оформление, оплата и налоги — по шагам.')+'</div>'
+   +h2('Для агента')+'<div class="cards">'+c('broadcast','Эфир с партнёром страны','Вопросы партнёру вживую и запись в архиве.')+c('school','Урок «Как предложить клиенту зарубежную недвижимость»','Кому предлагать, с чего начать разговор, когда передавать.')+'</div>';
+}
+function abroadPage(sub){
+  var tabs=[['','Страны','world'],['send','Передать клиента','send'],['list','Мои передачи','list-check'],['kit','Материалы и эфиры','folders']];
+  var c=acBy(sub),okc=c&&(c[3]==='on'||S.asoon==='soon');
+  var cur=tabs.some(function(t){return t[0]===sub})?sub:'';
+  return tabsHTML('#/b/abroad',tabs,cur)+(okc?abCountry(c):({'':abMain,send:abSend,list:abList,kit:abKit}[cur])());
+}
+/* список нового: название, что даёт, откуда взялось, куда ведёт; пятый элемент - дата, если добавлено после 12.10 */
+var NEWS=[
+ ['Строка «Почему сейчас» на главной','С первого экрана видно, от чего спасает платформа','сбои площадок 8–12.10','#/'],
+ ['Кнопки «Что болит сегодня»','Вход через задачу агента, а не через список разделов','практика клубов для агентов','#/'],
+ ['Блок «Мои каналы клиентов»','Доля каждого канала и что останется, если площадка остановится','сбои площадок 8–12.10','#/b/channels'],
+ ['Реклама в Max: три способа и каналы города с ценами','Запасной канал рекламы с понятной ценой просмотра','исследование рекламы в Max, 08–12.10','#/b/channels/max'],
+ ['Ответы нейросетей','Что сделать, чтобы нейросети советовали агента','работа по продвижению в нейросетях','#/b/channels/geo'],
+ ['Офлайн: листовка и листок на доску','Канал, который не зависит от интернета','посты участников рынка 12.10','#/b/channels/off'],
+ ['Моя база и копии','Агент скачивает свою базу; копии лежат в трёх местах','посты участников рынка 12.10','#/b/channels/base'],
+ ['Два новых цифровых сотрудника и строка «какую задачу сделки закрывает»','Понятно, зачем нужен каждый сотрудник','разбор материалов о нейросетях','#/b/tools/0'],
+ ['Урок «Правила работы с нейросетью»','Вводный урок для тех, кто только начинает','разбор материалов о нейросетях','#/b/tools/6'],
+ ['Спецвыпуск сводки о сбое площадок','Пример выпуска «что случилось и что делать агенту»','сбои площадок 8–12.10','#/b/market/3'],
+ ['В «Клубе друзей» — офлайн-набор и канал в Max','Ещё два способа звать людей в клуб','посты участников рынка 12.10','#/b/club/4'],
+ ['Блок «Зарубежная недвижимость»','Агент без своих выходов за рубеж продаёт там через партнёра в стране','идея 13.10','#/b/abroad','13.10'],
+ ['Передача клиента за рубеж и «Мои передачи»','Тот же путь, что в базе партнёров: запись «чей клиент» и шаги сделки','идея 13.10','#/b/abroad/send','13.10'],
+ ['Вход «Клиент хочет купить за рубежом» на главной и в строке запроса','Блок находится через задачу агента, а не через список разделов','идея 13.10','#/','13.10']
+];
+function cntSec(withNew){var n=0;B.forEach(function(b){if(b.neu&&!withNew)return;b.sections.forEach(function(s){if(s.neu&&!withNew)return;n++})});return n}
+function whatsNew(){
+  var b0=B.filter(function(b){return !b.neu}).length,st0=STAFF.filter(function(s){return !s[4]}).length+DEPT.length;
+  function m(a,b,t){return '<div class="metric"><b>'+a+' → '+b+'</b><small>'+t+'</small></div>'}
+  /* строка-массив - добавлено 13.10: показывается только в версии 13.10 и заливается */
+  function card(icon,t,items){return '<div class="card"><h2>'+ic(icon)+t+'</h2><ul>'+items.map(function(x){return typeof x==='string'?'<li>'+x+'</li>':S.n13?'<li class="isnew">'+x[0]+' '+NB13+'</li>':''}).join('')+'</ul></div>'}
+  return headHTML('sparkles','Что изменилось 12.10 и 13.10','Сравнение с макетом от 06.10. Всё новое залито фиолетовым; значки '+NB+' и '+NB13+' показывают дату.')
+   +'<div class="newbar">'+ic('arrows-left-right')+'<div class="t"><b>'+['Сейчас показан макет, каким он был 06.10','Сейчас показан макет, каким он был 12.10','Сейчас показан макет со всем новым: 12.10 и 13.10'][verCur()]+'</b>Переключатель «Версия» стоит и в верхней строке.</div>'+(S.n13?'<button class="btn" data-act="ver3:1">Показать как было 12.10</button><button class="btn ghost" data-act="neu:0">Как было 06.10</button>':'<button class="btn" data-act="neu:1">Вернуть всё новое</button>')+'</div>'
+   +'<div class="metrics">'+m(b0,B.length,'блоков')+m(cntSec(false),cntSec(true),'экранов и разделов')+m(st0,STAFF.length+DEPT.length,'цифровых сотрудников')+m(0,PAINS.length,'входов «что болит» на главной')+'</div>'
+   +h2('Новые функции: '+NEWS.length)
+   +'<div class="cmp">'+NEWS.map(function(n,i){return '<div class="cmpr"><b>'+(i+1)+'. '+n[0]+(n[4]?' '+NB13:'')+'</b><span>'+n[1]+'</span><small>Откуда: '+n[2]+'</small>'+(S.neu&&(S.n13||!n[4])?'<button class="btn ghost" data-go="'+n[3]+'">Открыть</button>':'<span class="tag dash">скрыто</span>')+'</div>'}).join('')+'</div>'
+   +'<div class="cards">'
+   +card('trending-up','Что стало лучше',['Главная отвечает на вопрос «зачем это сейчас»','Видно, что останется у агента, если площадка остановится','База агента — в его руках: файл и копии','Max и ответы нейросетей показаны как каналы клиентов, а не как инструменты',['У агента появляется выход на зарубежные страны через партнёра'],['Зарубежная передача идёт тем же путём, что передача партнёру базы: учить новое не нужно']])
+   +card('alert-triangle','Что могло стать хуже',['Главная длиннее на три полосы: до первого шага новичку дальше','Блоков стало 12 — выбора больше','У части нового за экраном пока нет работающего инструмента: это замысел','Доли каналов на экране — пример, своих цифр ещё нет',['Блоков стало 13'],['В карточках стран пока «вписать»: условий партнёров и вознаграждения агенту в макете нет']])
+   +card('help-circle','Что нужно решить',['Можно ли скачать базу при неоплаченной подписке','Показывать ли площадки объявлений как канал, если инструментов для них нет','Оставить ли блок «Мои каналы клиентов» пятым или поднять к клубу',['Кто принимает клиента в стране: застройщик, агентство или частный брокер'],['Агент только передаёт клиента или ведёт его сам'],['Показывать ли страны, где партнёр ещё подключается'],['Берёт ли платформа долю с зарубежной сделки'],['Место блока «Зарубежная недвижимость» на главной']])
+   +'</div>';
+}
+var PAGES={cities:citiesPage,deals:dealsPage,invite:invitePage,partners:partnersPage,channels:channelsPage,abroad:abroadPage},VIEWS={staff:staffView,dept:deptView};
 /* обновление расчётов при движении ползунка без перерисовки страницы */
 function upd(what){
   var i,els;
@@ -2005,11 +2335,12 @@ function render(){
   var r=route(),key=location.hash||'#/';
   /* экран "запись создана" показываем, только пока человек не ушёл со вкладки "Передать клиента" */
   if(!(r.v==='block'&&r.id==='partners'&&r.sub==='send'))PLAST='';
+  if(!(r.v==='block'&&r.id==='abroad'&&r.sub==='send'))ALAST='';
   document.documentElement.setAttribute('data-skin',S.skin);
   document.body.classList.toggle('panel-open',!!S.panel);
   $('#tool').innerHTML=toolHTML();
   $('#rail').innerHTML=railHTML(r);
-  var view=r.v==='home'?home():r.v==='block'?block(get(r.id),r.sub):r.v==='item'?item(get(r.id),r.n):r.v==='requests'?requests():r.v==='profile'?profile(r.pid):r.v==='anketa'?anketa():r.v==='course'?course():r.v==='verify'?verify():account();
+  var view=r.v==='home'?home():r.v==='block'?block(get(r.id),r.sub):r.v==='item'?item(get(r.id),r.n):r.v==='requests'?requests():r.v==='new'?whatsNew():r.v==='profile'?profile(r.pid):r.v==='anketa'?anketa():r.v==='course'?course():r.v==='verify'?verify():account();
   $('#main').innerHTML='<div class="view'+(key!==lastKey?' in':'')+'">'+top(r)+view+'</div>';
   var pn=$('#panel'),st=pn.scrollTop;pn.innerHTML=panelHTML();pn.scrollTop=st;
   $('#tabbar').innerHTML=tabbarHTML(r);
@@ -2039,6 +2370,17 @@ document.addEventListener('click',function(e){
   var a=e.target.closest('[data-act]');if(!a)return;
   var p=a.getAttribute('data-act').split(':'),act=p[0],x=p[1],y=p[2];
   if(act==='role')S.role=x;
+  /* ---- 12.10 ---- */
+  else if(act==='neu'){S.neu=x==='1';S.n13=S.neu;toast(S.neu?'Показано всё новое: 12.10 и 13.10':'Показан макет, каким он был 06.10')}
+  /* ---- 13.10: средняя версия и зарубежная недвижимость ---- */
+  else if(act==='ver3'){S.neu=true;S.n13=false;toast('Показан макет, каким он был 12.10')}
+  else if(act==='ato'){AS.c=x;ALAST='';scrolls[location.hash||'#/']=window.scrollY;if(location.hash==='#/b/abroad/send')render();else location.hash='#/b/abroad/send';return}
+  else if(act==='asend'){aSendClient();save();render();window.scrollTo(0,0);toast('Запись создана. Клиенту ушло сообщение');return}
+  else if(act==='amore')ALAST='';
+  else if(act==='anext'){var at=S.atx.filter(function(t){return t.id===x})[0];if(!at||at.st>=AST.length-1)return;toast('В макете: '+ANX[at.st]);at.st++;at.d1=AD}
+  else if(act==='asoonme'){toast('В макете уведомление не подключено. В рабочей версии придёт сообщение, когда страна откроется');return}
+  else if(act==='chdown')S.chdown=x==='1';
+  else if(act==='dlbase'){toast('В макете файл не скачивается. В рабочей версии — таблица: участники клуба, партнёры, передачи, коды');return}
   /* ---- v2 ---- */
   else if(act==='var')S[x]=(x==='circles'||x==='disc')?+y:y;
   else if(act==='lvl')setLvl(x==='ver');
@@ -2098,7 +2440,7 @@ document.addEventListener('click',function(e){
   else if(act==='eg'){if(!doAsk(EXAMPLES[+x]))return}
   else if(act==='send'){if(ASK){addReq(ASK.q);ASK.sent=true}}
   else if(act==='mic'){toast('В макете голос не подключён. В рабочей версии здесь запись голоса');return}
-  else if(act==='reset'){var keep={skin:S.skin,panel:S.panel};try{localStorage.removeItem(KEY)}catch(err){}S=defaults();S.skin=keep.skin;S.panel=keep.panel;ASK=null;QTXT='';ND={to:'Москва',what:'',bud:'',term:''};PS={src:'my',cl:'c1',name:'',tel:'',p:'',what:''};PLAST='';toast('Макет сброшен к исходному виду')}
+  else if(act==='reset'){var keep={skin:S.skin,panel:S.panel};try{localStorage.removeItem(KEY)}catch(err){}S=defaults();S.skin=keep.skin;S.panel=keep.panel;ASK=null;QTXT='';ND={to:'Москва',what:'',bud:'',term:''};PS={src:'my',cl:'c1',name:'',tel:'',p:'',what:''};PLAST='';AS={cl:'c1',c:'',what:''};ALAST='';toast('Макет сброшен к исходному виду')}
   else if(act==='copy'){copyText(summary(),'Сборка скопирована. Отправьте её автору макета');return}
   else if(act==='note')NOTE_OPEN=!NOTE_OPEN;
   else if(act==='notesave'){
@@ -2125,6 +2467,7 @@ document.addEventListener('input',function(e){
     if(p[0]==='ank'){S.ank[p[1]]=t.value;save()}
     else if(p[0]==='nd')ND[p[1]]=t.value;
     else if(p[0]==='ps')PS[p[1]]=t.value;
+    else if(p[0]==='as')AS[p[1]]=t.value;
     else if(p[0]==='calc'){S.calc[p[1]]=+t.value;save();upd('calc')}
     else if(p[0]==='share'){S.share=+t.value;save();upd('share')}
   }
